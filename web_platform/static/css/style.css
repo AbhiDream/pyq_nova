@@ -1221,9 +1221,11 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
   display: none;
   position: fixed;
   bottom: 0; left: 0; right: 0;
-  background: var(--surface-lowest);
+  background: rgba(6, 14, 32, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
   border-top: 1px solid var(--border);
-  z-index: 200;
+  z-index: 9999;
   padding: 8px 0 max(8px, env(safe-area-inset-bottom));
   justify-content: space-around;
   align-items: center;
@@ -1269,7 +1271,9 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 
   /* -- Main content takes full width, no offset -- */
   .main-content {
-    margin-left: 0;
+    margin-left: 0 !important;
+    width: 100% !important;
+    max-width: 100% !important;
     padding: 16px 14px;
     padding-top: 20px;
     padding-bottom: 90px; /* room for bottom nav */
