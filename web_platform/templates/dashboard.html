@@ -213,13 +213,13 @@
 
   <!-- Top bar -->
   <div class="d-topbar">
-    <h1 class="d-greeting-name">Hey, <span id="d-greeting-name">Aditya</span>!</h1>
+    <h1 class="d-greeting-name">Hey, <span id="d-greeting-name">{{ (user.name or 'Student').split()[0] }}</span>!</h1>
     <div class="d-topbar-right">
       <div class="d-trophy-badge">
         <i data-lucide="trophy" class="d-trophy-icon"></i> <span id="streak-count">125</span>
       </div>
       <div class="d-avatar" id="d-avatar">
-        <span id="d-avatar-text">A</span>
+        <span id="d-avatar-text">{{ (user.name or 'S')[0] | upper }}</span>
       </div>
     </div>
   </div>
