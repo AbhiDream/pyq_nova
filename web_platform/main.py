@@ -5,7 +5,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, Request
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, RedirectResponse
 from starlette.middleware.sessions import SessionMiddleware
 
 from config import (
@@ -61,10 +61,14 @@ app.include_router(progress.router)
 
 @app.get("/notebooks")
 def notebooks_page(request: Request):
+    if not request.session.get("user"):
+        return RedirectResponse(url="/login")
     return templates.TemplateResponse("notebooks.html", {"request": request, "user": request.session.get("user")})
 
 @app.get("/")
 def dashboard(request: Request):
+    if not request.session.get("user"):
+        return RedirectResponse(url="/login")
     try:
         with db_cursor() as cur:
             cur.execute("SELECT subject, COUNT(*) AS count FROM neet_pyqs GROUP BY subject ORDER BY subject")
@@ -89,6 +93,8 @@ def dashboard(request: Request):
 
 @app.get("/subject/{subject}")
 def subject_page(request: Request, subject: str):
+    if not request.session.get("user"):
+        return RedirectResponse(url="/login")
     subject = subject.lower()
     meta = SUBJECT_META.get(subject, {"name": subject.title(), "icon": "📚", "color": "#94A3B8"})
     return templates.TemplateResponse("chapters.html", {
@@ -103,6 +109,8 @@ def subject_page(request: Request, subject: str):
 
 @app.get("/practice/{chapter}")
 def practice_page(request: Request, chapter: str):
+    if not request.session.get("user"):
+        return RedirectResponse(url="/login")
     subject = "biology"  # default fallback
     try:
         with db_cursor() as cur:
