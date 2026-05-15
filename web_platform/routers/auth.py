@@ -30,9 +30,13 @@ def login_page(request: Request):
 @router.get("/auth/login")
 async def auth_login(request: Request):
     # Redirect to Google's consent screen
-    # For localhost testing, ensure protocol is preserved or forced to http if behind proxy
+    # For localhost testing, ensure protocol is preserved or forced to https if behind proxy
     redirect_uri = request.url_for('auth_callback')
-    return await oauth.google.authorize_redirect(request, redirect_uri)
+    redirect_uri_str = str(redirect_uri)
+    if "localhost" not in redirect_uri_str and "127.0.0.1" not in redirect_uri_str and redirect_uri_str.startswith("http://"):
+        redirect_uri_str = redirect_uri_str.replace("http://", "https://", 1)
+        
+    return await oauth.google.authorize_redirect(request, redirect_uri_str)
 
 @router.get("/auth/callback")
 async def auth_callback(request: Request):
