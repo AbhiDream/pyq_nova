@@ -279,18 +279,18 @@
 
 {% block scripts %}
 <script>
-// User info from localStorage
+// User info from server session (Google OAuth) — no more localStorage fallback
 (function() {
   try {
-    const user = JSON.parse(localStorage.getItem('pyqnova_user') || '{}');
-    const name = user.name || 'Aditya';
-    const pic  = user.photo || '';
-    document.getElementById('d-greeting-name').textContent = name;
+    const name = {{ (user.name or 'Student') | tojson }};
+    const pic  = {{ (user.picture or '') | tojson }};
+    const firstName = name.split(' ')[0];
+    document.getElementById('d-greeting-name').textContent = firstName;
     const av = document.getElementById('d-avatar');
     if (pic) {
-      av.innerHTML = '<img src="' + pic + '" alt="' + name + '">';
+      av.innerHTML = '<img src="' + pic + '" alt="' + firstName + '" style="width:100%;height:100%;border-radius:50%;object-fit:cover;">';
     } else {
-      document.getElementById('d-avatar-text').textContent = name[0].toUpperCase();
+      document.getElementById('d-avatar-text').textContent = firstName[0].toUpperCase();
     }
   } catch(e) {}
 })();
