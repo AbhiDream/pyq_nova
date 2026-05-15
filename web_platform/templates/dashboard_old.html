@@ -1,0 +1,191 @@
+{% extends "base.html" %}
+{% block title %}Dashboard{% endblock %}
+{% block page_id %}dashboard{% endblock %}
+
+{% block content %}
+<!-- Top Bar -->
+<div class="topbar">
+  <div>
+    <div class="card-label">Welcome back 👋</div>
+    <div class="topbar-title">PYQNova Command Centre</div>
+  </div>
+  <div style="display:flex;gap:10px;align-items:center">
+    <span class="topbar-badge">NEET 2026 Mode</span>
+    <span class="badge badge-teal">{{ total_in_db | default(6521) | int | string }}+ Questions</span>
+  </div>
+</div>
+
+<!-- Bento Grid -->
+<div class="bento">
+
+  <!-- ── HERO CARD ────────────────────────────────────────────────────────── -->
+  <div class="card card-hero card-accent" id="hero-card">
+    <!-- God-ray glow -->
+    <div style="position:absolute;top:-40px;right:80px;width:300px;height:300px;
+                background:radial-gradient(circle,rgba(30,58,138,0.35) 0%,transparent 70%);
+                filter:blur(50px);pointer-events:none;"></div>
+
+    <div style="position:relative;z-index:2;max-width:340px">
+      <span class="badge badge-coral" style="margin-bottom:16px">🔥 6521+ PYQs Ready</span>
+      <h1 style="font-family:'Montserrat',sans-serif;font-size:32px;font-weight:900;line-height:1.2;margin-bottom:12px">
+        Crush NEET 2026<br>
+        <span style="background:linear-gradient(90deg,#14B8A6,#818CF8);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text">
+          with AI-Powered PYQs
+        </span>
+      </h1>
+      <p style="color:var(--muted);font-size:14px;line-height:1.6;margin-bottom:24px">
+        Master every chapter with real past-year questions. Your rank is just practice away.
+      </p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="/subject/physics" class="btn btn-coral btn-lg" id="btn-start-solving">Start Solving ⚡</a>
+        <a href="/subject/biology" class="btn btn-outline" id="btn-explore">Explore Biology 🌿</a>
+      </div>
+    </div>
+
+    <!-- Nova Squad Hero Character (excited/pointing boy) -->
+    <img src="/characters/excited_found something amazing.jpg"
+         alt="Nova character excited"
+         class="character-img character-float"
+         style="width:260px;bottom:-10px;right:-10px;"
+         onerror="this.style.display='none'">
+  </div>
+
+  <!-- ── AI RANK PREDICTION ────────────────────────────────────────────── -->
+  <div class="card card-accent glow-pulse" id="ai-rank-card">
+    <div class="card-label">🤖 AI Rank Prediction</div>
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:8px">
+      <div class="card-value text-teal">98.5</div>
+      <div style="color:var(--muted);font-size:13px">percentile<br><span style="color:var(--teal);font-weight:600">↑ +1.2</span> this week</div>
+    </div>
+    <div class="progress-bar"><div class="progress-fill" style="width:98.5%"></div></div>
+    <p style="font-size:12px;color:var(--muted);margin-top:8px">Based on recent performance · Updated daily</p>
+    <div style="margin-top:16px">
+      <img src="/characters/became a champanion holding trophy.jpg"
+           alt="Trophy character"
+           style="height:90px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(20,184,166,0.3))"
+           onerror="this.style.display='none'">
+    </div>
+  </div>
+
+  <!-- ── DAILY GOAL / STREAK ───────────────────────────────────────────── -->
+  <div class="card" id="streak-card">
+    <div class="card-label">🔥 Daily Streak</div>
+    <div style="display:flex;align-items:baseline;gap:6px;margin-bottom:4px">
+      <div class="card-value text-coral" id="streak-count">0</div>
+      <div style="color:var(--muted);font-size:14px">days</div>
+    </div>
+    <p style="font-size:13px;color:var(--muted);margin-bottom:12px">Solve at least 10 questions to keep your streak!</p>
+    <div class="streak-dots" id="streak-dots">
+      <div class="streak-dot">M</div><div class="streak-dot">T</div><div class="streak-dot">W</div>
+      <div class="streak-dot">T</div><div class="streak-dot">F</div><div class="streak-dot">S</div><div class="streak-dot">S</div>
+    </div>
+    <img src="/characters/showing calaender as if time is less practice more.jpg"
+         alt="Calendar character"
+         style="width:80px;position:absolute;bottom:16px;right:16px;object-fit:contain;opacity:0.85"
+         onerror="this.style.display='none'">
+  </div>
+
+  <!-- ── PHYSICS CARD ──────────────────────────────────────────────────── -->
+  {% for subj in subjects %}
+  {% if subj.slug == 'physics' %}
+  <div class="card card-physics" id="card-physics">
+    <a href="/subject/physics" style="text-decoration:none;color:inherit;display:block">
+      <div class="subject-icon" style="background:rgba(20,184,166,0.12)">⚛️</div>
+      <div class="card-title">{{ subj.name }}</div>
+      <div style="color:var(--muted);font-size:13px;margin-bottom:14px">{{ subj.count }} questions · 25 chapters</div>
+      <div class="progress-bar"><div class="progress-fill" style="width:0%" id="physics-prog"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+        <span class="text-sm text-muted" id="physics-prog-label">0 solved</span>
+        <span class="btn btn-teal btn-sm">Solve Now →</span>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+
+  <!-- ── CHEMISTRY CARD ───────────────────────────────────────────────── -->
+  {% if subj.slug == 'chemistry' %}
+  <div class="card card-chemistry" id="card-chemistry">
+    <a href="/subject/chemistry" style="text-decoration:none;color:inherit;display:block">
+      <div class="subject-icon" style="background:rgba(129,140,248,0.12)">🧪</div>
+      <div class="card-title">{{ subj.name }}</div>
+      <div style="color:var(--muted);font-size:13px;margin-bottom:14px">{{ subj.count }} questions · 31 chapters</div>
+      <div class="progress-bar"><div class="progress-fill violet" style="width:0%"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+        <span class="text-sm text-muted">0 solved</span>
+        <span class="btn btn-sm" style="background:linear-gradient(135deg,#818CF8,#6366F1);color:#fff">Solve Now →</span>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+
+  <!-- ── BIOLOGY CARD ──────────────────────────────────────────────────── -->
+  {% if subj.slug == 'biology' %}
+  <div class="card card-biology" id="card-biology">
+    <a href="/subject/biology" style="text-decoration:none;color:inherit;display:block">
+      <div class="subject-icon" style="background:rgba(52,211,153,0.12)">🌿</div>
+      <div class="card-title">{{ subj.name }}</div>
+      <div style="color:var(--muted);font-size:13px;margin-bottom:14px">{{ subj.count }} questions · 38 chapters</div>
+      <div class="progress-bar"><div class="progress-fill green" style="width:0%"></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-top:10px">
+        <span class="text-sm text-muted">0 solved</span>
+        <span class="btn btn-sm" style="background:linear-gradient(135deg,#34D399,#059669);color:#fff">Solve Now →</span>
+      </div>
+    </a>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+  <!-- ── PROGRESS DONUT ────────────────────────────────────────────────── -->
+  <div class="card" id="progress-card">
+    <div class="card-label">📊 Overall Progress</div>
+    <div style="position:relative;width:140px;height:140px;margin:10px auto">
+      <canvas id="progressChart"></canvas>
+      <div style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <div style="font-family:'Montserrat',sans-serif;font-size:22px;font-weight:900" id="personal-solved">0</div>
+        <div style="font-size:10px;color:var(--muted)">solved</div>
+      </div>
+    </div>
+    <p style="text-align:center;font-size:12px;color:var(--muted);margin-top:6px">of {{ total_questions }} total PYQs</p>
+  </div>
+
+  <!-- ── HIGH FIVE / STUDY BUDDY ──────────────────────────────────────── -->
+  <div class="card" id="buddy-card" style="display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center">
+    <img src="/characters/high five with nova.jpg"
+         alt="High five Nova character"
+         style="width:120px;object-fit:contain;margin-bottom:16px;filter:drop-shadow(0 0 10px rgba(20,184,166,0.2))"
+         onerror="this.style.display='none'">
+    <div class="card-label">Study Buddy</div>
+    <p style="font-size:13px;color:var(--muted);line-height:1.5">Nova says: <em style="color:var(--teal)">"Every PYQ you solve brings you closer to your dream college!"</em></p>
+  </div>
+
+  <!-- ── QUICK STATS BAR ───────────────────────────────────────────────── -->
+  <div class="card card-wide" id="stats-bar" style="display:flex;gap:32px;align-items:center;flex-wrap:wrap">
+    <div>
+      <div class="card-label">Total PYQs</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--teal)">{{ total_questions | default(6521) }}</div>
+    </div>
+    <div style="width:1px;height:48px;background:var(--border)"></div>
+    <div>
+      <div class="card-label">Subjects</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--violet)">3</div>
+    </div>
+    <div style="width:1px;height:48px;background:var(--border)"></div>
+    <div>
+      <div class="card-label">Years Covered</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--coral)">20+</div>
+    </div>
+    <div style="width:1px;height:48px;background:var(--border)"></div>
+    <div>
+      <div class="card-label">AI Engine</div>
+      <div style="font-family:'Montserrat',sans-serif;font-size:28px;font-weight:900;color:var(--green)">Live</div>
+    </div>
+    <div style="margin-left:auto">
+      <img src="/characters/thumb up showing.jpg"
+           alt="Thumbs up character"
+           style="height:72px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(20,184,166,0.2))"
+           onerror="this.style.display='none'">
+    </div>
+  </div>
+
+</div><!-- /bento -->
+{% endblock %}

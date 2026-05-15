@@ -1,0 +1,419 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PYQ Nova - Performance Analytics</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed": "#e1e0ff",
+                "secondary": "#40e56c",
+                "secondary-fixed": "#69ff87",
+                "secondary-fixed-dim": "#3ce36a",
+                "outline": "#8b909f",
+                "tertiary-fixed-dim": "#c0c1ff",
+                "on-tertiary-fixed": "#07006c",
+                "background": "#0b1326",
+                "surface-container-highest": "#2d3449",
+                "on-primary-container": "#ffffff",
+                "on-error-container": "#ffdad6",
+                "surface-bright": "#31394d",
+                "inverse-primary": "#005bc0",
+                "inverse-on-surface": "#283044",
+                "on-error": "#690005",
+                "surface-container-low": "#131b2e",
+                "on-tertiary": "#1000a9",
+                "on-surface-variant": "#c1c6d6",
+                "primary-fixed-dim": "#adc7ff",
+                "on-secondary-fixed": "#002108",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "outline-variant": "#414754",
+                "on-secondary-fixed-variant": "#00531e",
+                "on-secondary-container": "#004d1b",
+                "surface-container": "#171f33",
+                "secondary-container": "#02c953",
+                "tertiary": "#c0c1ff",
+                "on-tertiary-container": "#ffffff",
+                "inverse-surface": "#dae2fd",
+                "on-primary-fixed": "#001a41",
+                "on-primary-fixed-variant": "#004493",
+                "surface-container-high": "#222a3d",
+                "primary-fixed": "#d8e2ff",
+                "primary": "#adc7ff",
+                "on-tertiary-fixed-variant": "#2f2ebe",
+                "primary-container": "#1a73e8",
+                "on-secondary": "#003912",
+                "surface-variant": "#2d3449",
+                "surface-dim": "#0b1326",
+                "surface-tint": "#adc7ff",
+                "tertiary-container": "#6265f0",
+                "on-surface": "#dae2fd",
+                "error": "#ffb4ab",
+                "error-container": "#93000a",
+                "surface": "#0b1326",
+                "on-primary": "#002e68"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "40px",
+                "stack-md": "16px",
+                "margin-mobile": "20px",
+                "gutter": "24px",
+                "container-max": "1280px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "base": "8px",
+                "stack-gap-md": "16px",
+                "stack-gap-lg": "32px",
+                "section-margin": "64px",
+                "container-padding-desktop": "40px",
+                "container-padding-mobile": "20px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { background-color: #0b1326; }
+        .ambient-shadow { box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2); }
+        .ambient-shadow-hover:hover { box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3); transform: scale(1.02); transition: all 0.2s ease; }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="font-body-md text-on-surface bg-background antialiased flex">
+<!-- SideNavBar -->
+<nav class="hidden md:flex flex-col h-screen w-64 fixed left-0 top-0 bg-surface-container-lowest shadow-[4px_0_20px_rgba(0,0,0,0.2)] z-20 p-stack-gap-md">
+<div class="mb-stack-gap-lg"><img src="{{DATA:IMAGE:IMAGE_5}}" alt="PYQ Nova Logo" class="w-32 h-auto mb-2">
+<p class="font-label-sm text-label-sm text-on-surface-variant">Premium Learning</p></div>
+<ul class="flex flex-col gap-2 flex-grow">
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="home">home</span>
+<span class="font-label-md text-label-md">Home</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="edit_square">edit_square</span>
+<span class="font-label-md text-label-md">Practice</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="assignment">assignment</span>
+<span class="font-label-md text-label-md">Mock Tests</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-primary font-bold bg-primary-container/10 transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="insights" data-weight="fill" style="font-variation-settings: 'FILL' 1;">insights</span>
+<span class="font-label-md text-label-md">Performance</span>
+</a>
+</li>
+<li class="">
+<a class="flex items-center gap-3 px-4 py-3 rounded-lg text-on-surface-variant hover:bg-surface-container-low transition-colors duration-200" href="#">
+<span class="material-symbols-outlined" data-icon="person">person</span>
+<span class="font-label-md text-label-md">Profile</span>
+</a>
+</li>
+</ul>
+<div class="mt-auto">
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 px-4 rounded-xl hover:bg-primary transition-colors duration-200">Upgrade to Pro</button>
+</div>
+</nav>
+<!-- Main Content Area -->
+<div class="flex-1 md:ml-64 flex flex-col min-h-screen">
+<!-- TopAppBar -->
+<header class="fixed top-0 right-0 left-0 md:left-64 h-16 bg-surface/80 backdrop-blur-md z-10 flex justify-between items-center px-container-padding-mobile md:px-container-padding-desktop w-full transition-all duration-200">
+<div class="flex items-center md:hidden">
+<span class="font-headline-md text-headline-md font-bold text-primary">PYQ Nova</span>
+</div>
+<div class="hidden md:flex flex-1"></div> <!-- Spacer for desktop -->
+<div class="flex items-center gap-4">
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="notifications">notifications</span>
+</button>
+<button class="text-on-surface-variant hover:text-primary transition-colors">
+<span class="material-symbols-outlined" data-icon="settings">settings</span>
+</button>
+<img alt="User avatar" class="w-8 h-8 rounded-full object-cover border-2 border-surface-container-lowest" data-alt="A professional headshot of a student in a bright, modern setting. The lighting is soft and natural, emphasizing a clean, light-mode aesthetic. The background is slightly blurred, maintaining a minimalist vibe." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBR6IXMNKwSlsRJUf6FLmT639OnJ6ietGZZDOt1Bx-HZmSMMDihkslFkhyAJqCYSaw7KztWdu5u8nkPjkxnx6LWkGPO42DilTNYgjRGZokuf57m_S0cTcPYZXBLcFuTBK9lUZd39XPtUtEQgdbd_x_VaVd-1Dsn6Zms9WxqhZt7u1TTa8zlybOHGS8NAFv9Cg5pZSjlvOhMBBaIhruj_8UMPNGh6fBCKIDaXRv2atXGfortDvVLrTB1baWOFK0iondMpotun1U8scc">
+</div>
+</header>
+<!-- Dashboard Canvas -->
+<main class="flex-1 pt-24 pb-stack-gap-lg px-container-padding-mobile md:px-container-padding-desktop max-w-[1100px] mx-auto w-full">
+<!-- Header Section -->
+<div class="flex flex-col md:flex-row md:items-end justify-between mb-stack-gap-lg gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg md:font-headline-lg md:text-headline-lg text-on-surface mb-2">Performance Analytics</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Track your progress and identify areas for improvement.</p>
+</div>
+<div class="relative">
+<select class="appearance-none bg-surface-container-lowest font-label-md text-label-md text-on-surface py-2.5 pl-4 pr-10 rounded-lg ambient-shadow focus:outline-none cursor-pointer">
+<option>Last 7 Days</option>
+<option selected="">Last 30 Days</option>
+<option>This Quarter</option>
+<option>All Time</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 transform -translate-y-1/2 text-on-surface-variant pointer-events-none" data-icon="expand_more">expand_more</span>
+</div>
+</div>
+<!-- Key Metrics Bento Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-stack-gap-md mb-stack-gap-lg">
+<!-- Metric 1 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow ambient-shadow-hover">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-primary-container/10 flex items-center justify-center text-primary">
+<span class="material-symbols-outlined" data-icon="functions">functions</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Total Questions</h3>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">1,248</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-0.5 rounded-full">+12%</span>
+</div>
+</div>
+<!-- Metric 2 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow ambient-shadow-hover">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container/20 flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined" data-icon="check_circle">check_circle</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Overall Accuracy</h3>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">76%</span>
+<span class="font-label-sm text-label-sm text-secondary-fixed-dim bg-secondary-container/20 px-2 py-0.5 rounded-full">+4%</span>
+</div>
+<div class="w-full bg-surface-container-high h-2 rounded-full mt-4 overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 76%"></div>
+</div>
+</div>
+<!-- Metric 3 -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow ambient-shadow-hover">
+<div class="flex items-center gap-3 mb-4">
+<div class="w-10 h-10 rounded-full bg-tertiary-container/10 flex items-center justify-center text-tertiary">
+<span class="material-symbols-outlined" data-icon="schedule">schedule</span>
+</div>
+<h3 class="font-label-md text-label-md text-on-surface-variant">Study Time</h3>
+</div>
+<div class="flex items-baseline gap-2">
+<span class="font-display-lg text-display-lg text-on-surface">42.5</span>
+<span class="font-label-md text-label-md text-on-surface-variant">hrs</span>
+</div>
+</div>
+</div>
+<!-- Charts & Complex Data Area -->
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-gap-md mb-stack-gap-lg">
+<!-- Subject Performance (Spans 2 columns on large screens) -->
+<div class="lg:col-span-2 bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Subject Accuracy</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">View Detailed Breakdown</button>
+</div>
+<!-- Simplified Visual Representation of a Bar Chart -->
+<div class="space-y-6 mt-4">
+<!-- Physics -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Physics</span>
+<span class="text-on-surface font-bold">82%</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-full overflow-hidden">
+<div class="bg-primary h-full rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<!-- Chemistry -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Chemistry</span>
+<span class="text-on-surface font-bold">68%</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-full overflow-hidden">
+<div class="bg-tertiary h-full rounded-full" style="width: 68%"></div>
+</div>
+</div>
+<!-- Biology -->
+<div>
+<div class="flex justify-between font-label-md text-label-md mb-2">
+<span class="text-on-surface">Biology</span>
+<span class="text-on-surface font-bold">91%</span>
+</div>
+<div class="w-full bg-surface-container-high h-4 rounded-full overflow-hidden">
+<div class="bg-secondary h-full rounded-full" style="width: 91%"></div>
+</div>
+</div>
+</div>
+</div>
+<!-- Strengths & Weaknesses -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow">
+<h3 class="font-headline-md text-headline-md text-on-surface mb-6">Chapter Insights</h3>
+<div class="space-y-6">
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-3">Strongest</h4>
+<ul class="space-y-3">
+<li class="flex justify-between items-center bg-surface p-3 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface">Genetics (Bio)</span>
+<span class="font-label-md text-label-md text-secondary">95%</span>
+</li>
+<li class="flex justify-between items-center bg-surface p-3 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface">Kinematics (Phy)</span>
+<span class="font-label-md text-label-md text-secondary">92%</span>
+</li>
+</ul>
+</div>
+<div>
+<h4 class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider mb-3">Needs Review</h4>
+<ul class="space-y-3">
+<li class="flex justify-between items-center bg-surface p-3 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface">Organic Chem</span>
+<span class="font-label-md text-label-md text-error">45%</span>
+</li>
+<li class="flex justify-between items-center bg-surface p-3 rounded-lg">
+<span class="font-body-md text-body-md text-on-surface">Thermodynamics</span>
+<span class="font-label-md text-label-md text-error">52%</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+<!-- Activity Heatmap -->
+<div class="bg-surface-container-lowest rounded-[24px] p-6 ambient-shadow">
+<div class="flex justify-between items-center mb-6">
+<h3 class="font-headline-md text-headline-md text-on-surface">Practice Consistency</h3>
+<div class="flex items-center gap-2 font-label-sm text-label-sm text-on-surface-variant">
+<span class="">Less</span>
+<div class="flex gap-1">
+<div class="w-3 h-3 rounded-sm bg-surface-container-high"></div>
+<div class="w-3 h-3 rounded-sm bg-primary-container/20"></div>
+<div class="w-3 h-3 rounded-sm bg-primary-container/50"></div>
+<div class="w-3 h-3 rounded-sm bg-primary-container/80"></div>
+<div class="w-3 h-3 rounded-sm bg-primary"></div>
+</div>
+<span class="">More</span>
+</div>
+</div>
+<!-- Abstract Representation of a Heatmap Grid -->
+<div class="overflow-x-auto pb-2">
+<div class="min-w-[700px] flex gap-1 justify-between">
+<!-- Generating Columns for the Heatmap -->
+<!-- A script loop would normally do this, writing static HTML for visual effect -->
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div></div>
+<div class="flex flex-col gap-1"><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-primary-container/50"></div><div class="w-3 h-3 rounded-sm bg-primary"></div><div class="w-3 h-3 rounded-sm bg-primary-container/80"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div><div class="w-3 h-3 rounded-sm bg-primary-container/20"></div><div class="w-3 h-3 rounded-sm bg-surface-container-high"></div></div>
+</div>
+</div>
+</div>
+</main>
+</div>
+
+
+</body></html>

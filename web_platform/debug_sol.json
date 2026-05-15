@@ -1,0 +1,3135 @@
+{
+  "type": "data",
+  "nodes": [
+    {
+      "type": "data",
+      "data": [
+        {
+          "nav": 1
+        },
+        {
+          "examGroups": 2
+        },
+        [
+          3,
+          310,
+          378,
+          770,
+          833,
+          865,
+          904
+        ],
+        {
+          "metaId": 4,
+          "country": 5,
+          "key": 6,
+          "createdAt": 7,
+          "description": 8,
+          "name": 9,
+          "updatedAt": 10,
+          "title": 11,
+          "keyValuePairs": 12,
+          "type": 13,
+          "order": 14,
+          "exams": 15
+        },
+        "24d1ae7c-9246-5674-9ec1-87bf6d79729c",
+        "in",
+        "jee",
+        "2020-08-24T22:55:16.584Z",
+        null,
+        "JEE",
+        "2023-03-01T02:24:03.858Z",
+        "Joint Entrance Examination",
+        {},
+        "examGroup",
+        0,
+        [
+          16,
+          88,
+          109,
+          132,
+          161,
+          180,
+          200,
+          219,
+          246,
+          265,
+          286
+        ],
+        {
+          "metaId": 17,
+          "country": 5,
+          "examGroup": 6,
+          "key": 18,
+          "createdAt": 19,
+          "description": 8,
+          "name": 20,
+          "updatedAt": 21,
+          "order": 14,
+          "title": 20,
+          "keyValuePairs": 22,
+          "image": 23,
+          "type": 24,
+          "badges": 25,
+          "apps": 32,
+          "quiz": 36,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 75,
+          "subjects": 78
+        },
+        "cea4e815-231c-545e-a844-bb45b16b5ccb",
+        "jee-main",
+        "2020-08-24T22:56:22.187Z",
+        "JEE Main",
+        "2024-08-04T05:12:03.739Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/jee-main.png",
+        "exam",
+        [
+          26,
+          29
+        ],
+        {
+          "title": 27,
+          "color": 28
+        },
+        "Latest Syllabus",
+        "#22c55e",
+        {
+          "title": 30,
+          "color": 31
+        },
+        "PYQ Topic wise",
+        "#ef4444",
+        [
+          33,
+          34,
+          35
+        ],
+        "com.examgoal.jeemainpreparation.app",
+        "room-examgoal-com",
+        "com.examgoal.android.app",
+        {
+          "subjects": 37
+        },
+        [
+          38,
+          55,
+          64
+        ],
+        {
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18,
+          "subject": 39,
+          "question_types": 40
+        },
+        "physics",
+        [
+          41,
+          50
+        ],
+        {
+          "types": 42,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 48
+        },
+        [
+          43,
+          44
+        ],
+        "mcq",
+        "mcqm",
+        4,
+        1,
+        144000,
+        {
+          "daily": 45,
+          "weekly": 49
+        },
+        10,
+        {
+          "types": 51,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 53
+        },
+        [
+          52
+        ],
+        "integer",
+        {
+          "daily": 46,
+          "weekly": 54
+        },
+        5,
+        {
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18,
+          "subject": 56,
+          "question_types": 57
+        },
+        "chemistry",
+        [
+          58,
+          61
+        ],
+        {
+          "types": 59,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 60
+        },
+        [
+          43,
+          44
+        ],
+        {
+          "daily": 45,
+          "weekly": 49
+        },
+        {
+          "types": 62,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 63
+        },
+        [
+          52
+        ],
+        {
+          "daily": 46,
+          "weekly": 54
+        },
+        {
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18,
+          "subject": 65,
+          "question_types": 66
+        },
+        "mathematics",
+        [
+          67,
+          70
+        ],
+        {
+          "types": 68,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 69
+        },
+        [
+          43,
+          44
+        ],
+        {
+          "daily": 45,
+          "weekly": 49
+        },
+        {
+          "types": 71,
+          "marks": 45,
+          "negMarks": 46,
+          "timeAllotted": 47,
+          "maxQuestions": 72
+        },
+        [
+          52
+        ],
+        {
+          "daily": 46,
+          "weekly": 54
+        },
+        "Previous Years Questions with Solutions",
+        true,
+        [
+          76,
+          77
+        ],
+        "chapter",
+        "paper",
+        [
+          79,
+          82,
+          85
+        ],
+        {
+          "metaId": 80,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18
+        },
+        "99673506-f2c4-59c3-b166-d9543244d505",
+        "Physics",
+        {
+          "metaId": 83,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18
+        },
+        "531fc896-5c12-5f87-a47e-b5663b869424",
+        "Chemistry",
+        {
+          "metaId": 86,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 18
+        },
+        "65f55b3f-ebcd-51b9-8d4f-ec4f7943e29a",
+        "Mathematics",
+        {
+          "metaId": 89,
+          "country": 5,
+          "examGroup": 6,
+          "key": 90,
+          "createdAt": 91,
+          "description": 8,
+          "name": 92,
+          "updatedAt": 93,
+          "order": 46,
+          "title": 92,
+          "keyValuePairs": 94,
+          "image": 95,
+          "type": 24,
+          "badges": 96,
+          "apps": 99,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 101,
+          "subjects": 102
+        },
+        "066f55b4-d2b7-5f8f-9534-4d8b4724cfc6",
+        "jee-advanced",
+        "2020-08-24T22:56:13.097Z",
+        "JEE Advanced",
+        "2024-07-12T10:35:13.091Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/jee-advanced.png",
+        [
+          97
+        ],
+        {
+          "title": 98,
+          "color": 31
+        },
+        "PYQ Topic Wise",
+        [
+          100,
+          35,
+          33,
+          34
+        ],
+        "com.examgoal.jeeadvancedpreparation.app",
+        [
+          76,
+          77
+        ],
+        [
+          103,
+          105,
+          107
+        ],
+        {
+          "metaId": 104,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 90
+        },
+        "8c196d8d-07bf-5285-aa0a-a68dc4f5ed1c",
+        {
+          "metaId": 106,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 90
+        },
+        "851528ed-53f8-58ca-805d-f55e31834f26",
+        {
+          "metaId": 108,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 90
+        },
+        "a8314b18-4eed-59d3-a7c5-cb0e3efe15d5",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 110,
+          "type": 24,
+          "createdAt": 111,
+          "description": 8,
+          "image": 112,
+          "keyValuePairs": 113,
+          "metaId": 114,
+          "title": 115,
+          "updatedAt": 116,
+          "order": 117,
+          "badges": 118,
+          "apps": 120,
+          "quiz": 122,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 124,
+          "subjects": 125
+        },
+        "mht-cet",
+        "2023-06-12T10:37:36.515Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/mht-cet.png",
+        {},
+        "a3dc0201-1afc-543b-a9f7-9f30bbe0acc1",
+        "MHT CET",
+        "2026-01-25T07:17:36.757Z",
+        2,
+        [
+          119
+        ],
+        {
+          "title": 30,
+          "color": 31
+        },
+        [
+          35,
+          34,
+          33,
+          121
+        ],
+        "com.examgoal.mhtcet.preparation.app",
+        {
+          "subjects": 123
+        },
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          126,
+          128,
+          130
+        ],
+        {
+          "metaId": 127,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 110
+        },
+        "b64636af-cc5d-5db2-bef3-7493dbfb4abb",
+        {
+          "metaId": 129,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 110
+        },
+        "a3fca842-13bd-57aa-b930-0b51164437cf",
+        {
+          "metaId": 131,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 110
+        },
+        "76fe5929-d463-5ab3-8ea8-086b0e654897",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 133,
+          "type": 24,
+          "createdAt": 134,
+          "description": 8,
+          "image": 135,
+          "keyValuePairs": 136,
+          "metaId": 137,
+          "order": 138,
+          "title": 139,
+          "updatedAt": 140,
+          "badges": 141,
+          "apps": 144,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 145,
+          "subjects": 146
+        },
+        "bitsat",
+        "2022-03-22T03:07:20.915Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/bitsat.png",
+        {},
+        "927dc81f-cde0-5a78-a96a-65d8cea03711",
+        3,
+        "BITSAT",
+        "2024-02-07T15:13:28.305Z",
+        [
+          142
+        ],
+        {
+          "title": 143,
+          "color": 31
+        },
+        "PYQ Topic wise (Soon)",
+        [
+          35,
+          33,
+          34
+        ],
+        [
+          76,
+          77
+        ],
+        [
+          147,
+          149,
+          151,
+          153,
+          157
+        ],
+        {
+          "metaId": 148,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 133
+        },
+        "ae8b46c7-20a0-5596-8610-2ad8a6c22101",
+        {
+          "metaId": 150,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 133
+        },
+        "855480ca-d74c-53c0-9b84-57128b146839",
+        {
+          "metaId": 152,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 133
+        },
+        "667f1924-4ac3-58d1-8480-ba4f4cef169d",
+        {
+          "metaId": 154,
+          "title": 155,
+          "key": 156,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 133
+        },
+        "3dd36de2-2192-5319-9547-f11e55297d51",
+        "English Proficiency",
+        "english-proficiency",
+        {
+          "metaId": 158,
+          "title": 159,
+          "key": 160,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 133
+        },
+        "21fc2196-b0da-5e03-981b-80e940862d24",
+        "Logical Reasoning",
+        "logical-reasoning",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 162,
+          "type": 24,
+          "createdAt": 163,
+          "description": 8,
+          "image": 164,
+          "keyValuePairs": 165,
+          "metaId": 166,
+          "title": 167,
+          "updatedAt": 168,
+          "order": 45,
+          "badges": 169,
+          "apps": 171,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 172,
+          "subjects": 173
+        },
+        "comedk",
+        "2023-05-28T05:49:10.855Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/comedk.png",
+        {},
+        "341df63e-dc3a-5b16-83a9-9f8513cf9c5d",
+        "COMEDK",
+        "2024-02-07T15:14:02.291Z",
+        [
+          170
+        ],
+        {
+          "title": 143,
+          "color": 31
+        },
+        [
+          35,
+          34,
+          33
+        ],
+        [
+          76,
+          77
+        ],
+        [
+          174,
+          176,
+          178
+        ],
+        {
+          "metaId": 175,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 162
+        },
+        "7497f71e-7a90-5582-bdd3-4cf4de11952b",
+        {
+          "metaId": 177,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 162
+        },
+        "e63804b1-8c00-577a-85db-30c217f0125d",
+        {
+          "metaId": 179,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 162
+        },
+        "122a3c67-282b-5f60-8cdc-406559e680cc",
+        {
+          "metaId": 181,
+          "country": 5,
+          "examGroup": 6,
+          "key": 182,
+          "createdAt": 183,
+          "description": 8,
+          "keyValuePairs": 184,
+          "order": 54,
+          "title": 185,
+          "updatedAt": 186,
+          "image": 187,
+          "type": 24,
+          "badges": 188,
+          "apps": 190,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 192,
+          "subjects": 193
+        },
+        "04a84f14-cc92-5940-99e3-f3c406a5157a",
+        "wb-jee",
+        "2020-12-19T06:05:12.782Z",
+        {},
+        "WB JEE",
+        "2024-02-07T15:13:08.358Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/wbjee.png",
+        [
+          189
+        ],
+        {
+          "title": 143,
+          "color": 31
+        },
+        [
+          33,
+          191,
+          34,
+          35
+        ],
+        "com.examgoal.wbjeepreparation.app",
+        [
+          76,
+          77
+        ],
+        [
+          194,
+          196,
+          198
+        ],
+        {
+          "metaId": 195,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 182
+        },
+        "f02cb85a-43ec-5c05-b727-abb446359951",
+        {
+          "metaId": 197,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 182
+        },
+        "6d5e1cf4-bffa-59cb-97f3-d7cede9795b9",
+        {
+          "metaId": 199,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 182
+        },
+        "95804e5f-9997-5ef4-b947-94a9569aa1a9",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 201,
+          "type": 24,
+          "createdAt": 202,
+          "description": 8,
+          "image": 203,
+          "keyValuePairs": 204,
+          "metaId": 205,
+          "title": 206,
+          "updatedAt": 207,
+          "order": 208,
+          "apps": 209,
+          "badges": 210,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 211,
+          "subjects": 212
+        },
+        "kcet",
+        "2023-10-28T07:36:50.767Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/jee/kcet.png",
+        {},
+        "a06069a7-4020-5f0c-a91f-d76bdc38c55b",
+        "KCET",
+        "2024-02-27T04:29:46.886Z",
+        6,
+        [],
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          213,
+          215,
+          217
+        ],
+        {
+          "metaId": 214,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 201
+        },
+        "ba274902-7143-5939-b876-c837650df1ab",
+        {
+          "metaId": 216,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 201
+        },
+        "45b4a0ad-f425-5bc1-8370-c4b5e23e23bf",
+        {
+          "metaId": 218,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 201
+        },
+        "6f7bb56d-bf49-5009-9516-b29f105b0ecc",
+        {
+          "examGroup": 6,
+          "type": 24,
+          "key": 220,
+          "country": 5,
+          "apps": 221,
+          "badges": 222,
+          "createdAt": 223,
+          "description": 8,
+          "image": 224,
+          "keyValuePairs": 225,
+          "metaId": 226,
+          "title": 227,
+          "updatedAt": 228,
+          "order": 229,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 230,
+          "subjects": 231
+        },
+        "viteee",
+        [],
+        [],
+        "2024-03-09T22:16:54.804Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/5ef25410-97bb-4621-853a-755d0bbaac4d/348328b0-eb61-11ee-831d-6530431f76f8/6y3zli1lu89xfp8.png",
+        {},
+        "1bf9f8df-c674-58d9-9be2-ca0c599bed9f",
+        "VITEEE",
+        "2024-03-26T11:09:17.591Z",
+        7,
+        [
+          76,
+          77
+        ],
+        [
+          232,
+          234,
+          236,
+          238,
+          242
+        ],
+        {
+          "metaId": 233,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 220
+        },
+        "e2b0e747-f3e8-56d0-ae1d-4aa8243eada8",
+        {
+          "metaId": 235,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 220
+        },
+        "cd634dca-69c1-59e4-9572-fc17fb38d0bf",
+        {
+          "metaId": 237,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 220
+        },
+        "465537ba-f995-54ca-84c4-d30e4fe7b3eb",
+        {
+          "metaId": 239,
+          "title": 240,
+          "key": 241,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 220
+        },
+        "535c4444-385a-57a3-b547-d008ddfa2910",
+        "Aptitude",
+        "aptitude",
+        {
+          "metaId": 243,
+          "title": 244,
+          "key": 245,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 220
+        },
+        "4b121ea2-938f-53ca-aab2-20d0ac07ab3e",
+        "English",
+        "english",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 247,
+          "type": 24,
+          "createdAt": 248,
+          "description": 8,
+          "image": 249,
+          "keyValuePairs": 250,
+          "metaId": 251,
+          "title": 252,
+          "updatedAt": 253,
+          "order": 254,
+          "apps": 255,
+          "badges": 256,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 257,
+          "subjects": 258
+        },
+        "ap-eapcet",
+        "2023-06-15T00:06:32.149Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/67db133c-ba65-4e2c-ad65-05158ae574a3/a9db1730-387d-11ef-afbe-73a2e898f5a9/jaoe38c1ly4hsb39.png",
+        {},
+        "84c9c1a8-8503-524d-bf02-6ed33190e9ee",
+        "AP EAPCET",
+        "2024-07-02T14:16:57.943Z",
+        8,
+        [
+          35,
+          33
+        ],
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          259,
+          261,
+          263
+        ],
+        {
+          "metaId": 260,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 247
+        },
+        "51ff6a15-428d-5468-9db6-abce07d20988",
+        {
+          "metaId": 262,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 247
+        },
+        "0888db8a-760e-5532-bd2c-bb58758d6f76",
+        {
+          "metaId": 264,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 247
+        },
+        "0f122d9f-2ac2-51b8-9227-dabf19180eff",
+        {
+          "country": 5,
+          "examGroup": 6,
+          "key": 266,
+          "type": 24,
+          "createdAt": 267,
+          "description": 8,
+          "image": 268,
+          "keyValuePairs": 269,
+          "metaId": 270,
+          "order": 271,
+          "title": 272,
+          "updatedAt": 273,
+          "apps": 274,
+          "badges": 275,
+          "quiz": 276,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 278,
+          "subjects": 279
+        },
+        "ts-eamcet",
+        "2023-01-06T17:14:03.208Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/6dd28730-004e-4717-bdcb-88d719ed6def/739edcd0-d173-11ef-b8cb-250dbba0307d/jaoe38c1m5umvggu.png",
+        {},
+        "c619ebef-d879-5ed5-a158-c39b2d4b5f15",
+        9,
+        "TS EAMCET",
+        "2025-01-13T05:59:01.161Z",
+        [],
+        [],
+        {
+          "subjects": 277
+        },
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          280,
+          282,
+          284
+        ],
+        {
+          "metaId": 281,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 266
+        },
+        "50b5dce1-f1e9-5caf-b9d7-dac0334d0866",
+        {
+          "metaId": 283,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 266
+        },
+        "60f1f8a6-6a36-5aeb-80a2-694ab6e45047",
+        {
+          "metaId": 285,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 266
+        },
+        "b8470f23-c9e5-5b70-a9d2-ab3ab8f25101",
+        {
+          "key": 287,
+          "country": 5,
+          "type": 24,
+          "examGroup": 6,
+          "apps": 288,
+          "badges": 289,
+          "createdAt": 290,
+          "description": 8,
+          "image": 291,
+          "keyValuePairs": 292,
+          "metaId": 293,
+          "quiz": 294,
+          "title": 296,
+          "updatedAt": 297,
+          "order": 49,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 298,
+          "subjects": 299
+        },
+        "iat-iiser",
+        [
+          34,
+          35,
+          33
+        ],
+        [],
+        "2025-04-25T06:03:51.744Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/0e359091-6260-42af-bb0d-5ad7d2e88c20/7c7eaee0-2658-11f0-a3e5-29ab2addad42/jaoe38c1ma50977y.png",
+        {},
+        "384abd13-f8f7-5869-a0be-91c399347bed",
+        {
+          "subjects": 295
+        },
+        [],
+        "IAT (IISER)",
+        "2025-05-01T07:29:23.931Z",
+        [
+          76,
+          77
+        ],
+        [
+          300,
+          302,
+          304,
+          306
+        ],
+        {
+          "metaId": 301,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 287
+        },
+        "cfc10fc8-d1da-57b5-88a3-58104a852eed",
+        {
+          "metaId": 303,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 287
+        },
+        "9c7d48ef-0c91-5a9e-ac68-aa870c6b9e8f",
+        {
+          "metaId": 305,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 287
+        },
+        "6c937203-2b84-5ca6-9957-07949e2a82f5",
+        {
+          "metaId": 307,
+          "title": 308,
+          "key": 309,
+          "country": 5,
+          "examGroup": 6,
+          "exam": 287
+        },
+        "3149cc1f-1dd3-5e1d-9ca2-0a676e36abf0",
+        "Biology",
+        "biology",
+        {
+          "metaId": 311,
+          "country": 5,
+          "key": 312,
+          "createdAt": 313,
+          "description": 8,
+          "name": 314,
+          "updatedAt": 315,
+          "title": 314,
+          "keyValuePairs": 316,
+          "type": 13,
+          "order": 46,
+          "exams": 317
+        },
+        "2f58d07a-d9f9-5b81-9270-851bbde4004b",
+        "medical",
+        "2020-08-24T22:55:36.533Z",
+        "Medical",
+        "2020-11-08T21:18:58.929Z",
+        {},
+        [
+          318,
+          339,
+          359
+        ],
+        {
+          "metaId": 319,
+          "country": 5,
+          "examGroup": 312,
+          "key": 320,
+          "createdAt": 321,
+          "description": 322,
+          "keyValuePairs": 323,
+          "order": 14,
+          "title": 324,
+          "updatedAt": 325,
+          "type": 24,
+          "image": 23,
+          "badges": 326,
+          "apps": 329,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 331,
+          "subjects": 332
+        },
+        "64cc8fc8-f6ac-5196-b8df-4ea17b167ba0",
+        "neet",
+        "2020-11-20T11:36:42.532Z",
+        "The National Eligibility cum Entrance Test (Undergraduate), formerly the All India Pre-Medical Test, is an entrance examination in India for students who wish to study undergraduate medical courses and dental courses in government or private medical and dental colleges in India.",
+        {},
+        "NEET",
+        "2024-06-01T14:14:11.057Z",
+        [
+          327,
+          328
+        ],
+        {
+          "title": 27,
+          "color": 28
+        },
+        {
+          "title": 30,
+          "color": 31
+        },
+        [
+          35,
+          330,
+          34
+        ],
+        "com.neetcare.neetquestion",
+        [
+          76,
+          77
+        ],
+        [
+          333,
+          335,
+          337
+        ],
+        {
+          "metaId": 334,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 320
+        },
+        "d757dd74-fb1f-527e-9868-f803dcb682fc",
+        {
+          "metaId": 336,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 320
+        },
+        "f086bacb-fbbe-5d39-a37c-16c174efa6cb",
+        {
+          "metaId": 338,
+          "title": 308,
+          "key": 309,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 320
+        },
+        "ab7d77ab-f474-5b4f-a4dd-a1144bc537d0",
+        {
+          "country": 5,
+          "examGroup": 312,
+          "key": 340,
+          "type": 24,
+          "badges": 341,
+          "createdAt": 342,
+          "description": 8,
+          "image": 343,
+          "keyValuePairs": 344,
+          "metaId": 345,
+          "title": 346,
+          "updatedAt": 347,
+          "order": 46,
+          "apps": 348,
+          "quiz": 349,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 351,
+          "subjects": 352
+        },
+        "aiims",
+        [],
+        "2024-01-18T04:06:00.448Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/5ca40f45-b700-4f46-9b8f-83745abac08c/fc927a90-6799-11ef-8b22-651b64eb4256/jaoe38c1m0i5qvui.png",
+        {},
+        "e5fe5851-01c8-5703-ba3a-ddf78cac4935",
+        "AIIMS",
+        "2024-08-31T13:08:37.555Z",
+        [
+          35,
+          330,
+          34
+        ],
+        {
+          "subjects": 350
+        },
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          353,
+          355,
+          357
+        ],
+        {
+          "metaId": 354,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 340
+        },
+        "434fc826-f3be-510b-b078-3b12c3716eed",
+        {
+          "metaId": 356,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 340
+        },
+        "55f07a63-f163-5683-b500-3ec176cfe2eb",
+        {
+          "metaId": 358,
+          "title": 308,
+          "key": 309,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 340
+        },
+        "5931e0d6-0bc9-5d62-ad41-de0f9d0389a2",
+        {
+          "key": 360,
+          "type": 24,
+          "country": 5,
+          "examGroup": 312,
+          "apps": 361,
+          "badges": 362,
+          "createdAt": 363,
+          "description": 8,
+          "image": 112,
+          "keyValuePairs": 364,
+          "metaId": 365,
+          "quiz": 366,
+          "title": 368,
+          "updatedAt": 369,
+          "order": 117,
+          "past_desc": 73,
+          "solved": 74,
+          "sections": 370,
+          "subjects": 371
+        },
+        "mht-cet-biology",
+        [
+          34,
+          35
+        ],
+        [],
+        "2025-08-09T01:52:27.582Z",
+        {},
+        "338c68fe-01f8-5a4a-b53e-9d8a3aa734cc",
+        {
+          "subjects": 367
+        },
+        [],
+        "MHT CET (Biology)",
+        "2025-08-22T10:15:15.141Z",
+        [
+          76,
+          77
+        ],
+        [
+          372,
+          374,
+          376
+        ],
+        {
+          "metaId": 373,
+          "title": 308,
+          "key": 309,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 360
+        },
+        "bec7fa3e-f657-57d1-ae62-1d5797206a12",
+        {
+          "metaId": 375,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 360
+        },
+        "a6e8ec3a-c284-541c-936c-afc5e1948e33",
+        {
+          "metaId": 377,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 312,
+          "exam": 360
+        },
+        "93604262-f7b2-59d8-8274-16ddf04823ce",
+        {
+          "metaId": 379,
+          "country": 5,
+          "key": 380,
+          "createdAt": 381,
+          "description": 8,
+          "name": 382,
+          "updatedAt": 383,
+          "title": 384,
+          "keyValuePairs": 385,
+          "type": 13,
+          "order": 117,
+          "exams": 386
+        },
+        "9a41eb02-0197-5b54-82ea-e22694036358",
+        "gate",
+        "2020-08-24T22:55:45.742Z",
+        "GATE",
+        "2020-12-19T05:55:00.077Z",
+        "Graduate Aptitude Test in Engineering",
+        {},
+        [
+          387,
+          454,
+          506,
+          556,
+          610,
+          674,
+          722,
+          734
+        ],
+        {
+          "metaId": 388,
+          "country": 5,
+          "examGroup": 380,
+          "key": 389,
+          "createdAt": 390,
+          "description": 8,
+          "name": 391,
+          "updatedAt": 392,
+          "keyValuePairs": 393,
+          "order": 14,
+          "title": 391,
+          "type": 24,
+          "image": 394,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 396,
+          "subjects": 397
+        },
+        "33462b07-edd3-5b7b-8995-2aa22c186a92",
+        "gate-cse",
+        "2020-08-24T22:56:42.763Z",
+        "GATE CSE",
+        "2022-03-04T04:22:26.576Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/cse.png",
+        false,
+        [
+          76,
+          77
+        ],
+        [
+          398,
+          402,
+          406,
+          410,
+          414,
+          418,
+          422,
+          426,
+          430,
+          434,
+          438,
+          442,
+          446,
+          450
+        ],
+        {
+          "metaId": 399,
+          "title": 400,
+          "key": 401,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "bb175638-ac69-5355-af62-f07c13711f4c",
+        "Theory of Computation",
+        "theory-of-computation",
+        {
+          "metaId": 403,
+          "title": 404,
+          "key": 405,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "417354bc-47b6-5617-af9c-fd2e0e3856ab",
+        "Operating Systems",
+        "operating-systems",
+        {
+          "metaId": 407,
+          "title": 408,
+          "key": 409,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "bd5ed14a-300f-5940-9e29-df2517b6659a",
+        "Algorithms",
+        "algorithms",
+        {
+          "metaId": 411,
+          "title": 412,
+          "key": 413,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "2c2828f3-7d7a-56b2-b8c9-62ebdd3d3220",
+        "Digital Logic",
+        "digital-logic",
+        {
+          "metaId": 415,
+          "title": 416,
+          "key": 417,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "3b820776-a9b2-5766-9249-a1d7b859ac9c",
+        "Database Management System",
+        "database-management-system",
+        {
+          "metaId": 419,
+          "title": 420,
+          "key": 421,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "b15f3a63-f7cb-5954-b2c0-3a6805858433",
+        "Data Structures",
+        "data-structures",
+        {
+          "metaId": 423,
+          "title": 424,
+          "key": 425,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "79b31ebd-2652-5a02-9be9-3b8ad0b553b8",
+        "Computer Networks",
+        "computer-networks",
+        {
+          "metaId": 427,
+          "title": 428,
+          "key": 429,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "fd95477b-0449-5a48-9e1b-372a5f30f9af",
+        "Software Engineering",
+        "software-engineering",
+        {
+          "metaId": 431,
+          "title": 432,
+          "key": 433,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "5c238b14-3b8a-57a7-a939-deaf233e6181",
+        "Compiler Design",
+        "compiler-design",
+        {
+          "metaId": 435,
+          "title": 436,
+          "key": 437,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "9e4e3b5c-36de-50dc-a0db-85737609fd3d",
+        "Web Technologies",
+        "web-technologies",
+        {
+          "metaId": 439,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "7b425d45-af7d-5188-961c-78b35b15351d",
+        "General Aptitude",
+        "general-aptitude",
+        {
+          "metaId": 443,
+          "title": 444,
+          "key": 445,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "62ccd049-9ca4-52d5-9cf5-bb8ec5ced0f4",
+        "Discrete Mathematics",
+        "discrete-mathematics",
+        {
+          "metaId": 447,
+          "title": 448,
+          "key": 449,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "81c34870-a875-5424-aba0-cbcbb4fddc3f",
+        "Programming Languages",
+        "programming-languages",
+        {
+          "metaId": 451,
+          "title": 452,
+          "key": 453,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 389
+        },
+        "8b4f509a-08bb-595e-804e-fb8532d3d119",
+        "Computer Organization",
+        "computer-organization",
+        {
+          "metaId": 455,
+          "country": 5,
+          "examGroup": 380,
+          "key": 456,
+          "createdAt": 457,
+          "description": 8,
+          "name": 458,
+          "updatedAt": 459,
+          "keyValuePairs": 460,
+          "order": 46,
+          "title": 458,
+          "type": 24,
+          "image": 461,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 462,
+          "subjects": 463
+        },
+        "a719d3f8-2de6-5987-8fa9-48b06791480c",
+        "gate-ece",
+        "2020-08-24T22:56:54.391Z",
+        "GATE ECE",
+        "2022-03-04T04:22:33.142Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/ece.png",
+        [
+          76,
+          77
+        ],
+        [
+          464,
+          466,
+          470,
+          474,
+          478,
+          482,
+          486,
+          490,
+          494,
+          498,
+          502
+        ],
+        {
+          "metaId": 465,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "8ff0f40c-39f3-5de5-a95a-f5350bce8bb2",
+        {
+          "metaId": 467,
+          "title": 468,
+          "key": 469,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "477c1343-b450-52d2-bcd3-b661db356287",
+        "Network Theory",
+        "network-theory",
+        {
+          "metaId": 471,
+          "title": 472,
+          "key": 473,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "ede5c790-05a5-5ba9-b777-21ae10d8eb37",
+        "Microprocessors",
+        "microprocessors",
+        {
+          "metaId": 475,
+          "title": 476,
+          "key": 477,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "4e61a9ba-03ba-56fc-b21b-2c9f8b04e1d1",
+        "Signals and Systems",
+        "signals-and-systems",
+        {
+          "metaId": 479,
+          "title": 480,
+          "key": 481,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "53231e6b-ba8e-55b2-b3bf-f2c7edcbba28",
+        "Electromagnetics",
+        "electromagnetics",
+        {
+          "metaId": 483,
+          "title": 484,
+          "key": 485,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "f201620f-c0f3-5b99-a7aa-ce27fa7d5bcc",
+        "Digital Circuits",
+        "digital-circuits",
+        {
+          "metaId": 487,
+          "title": 488,
+          "key": 489,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "8e8f549d-581c-549a-ad30-92184d84d258",
+        "Electronic Devices and VLSI",
+        "electronic-devices-and-vlsi",
+        {
+          "metaId": 491,
+          "title": 492,
+          "key": 493,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "5a448119-dbeb-51e8-a43f-0598f8e4dea6",
+        "Control Systems",
+        "control-systems",
+        {
+          "metaId": 495,
+          "title": 496,
+          "key": 497,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "1c726d84-ebe5-5647-a793-4c6dc3c81fcc",
+        "Communications",
+        "communications",
+        {
+          "metaId": 499,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "b2e3b1ab-42e7-525d-ba99-8e62286e6bcd",
+        "Engineering Mathematics",
+        "engineering-mathematics",
+        {
+          "metaId": 503,
+          "title": 504,
+          "key": 505,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 456
+        },
+        "f766b60a-04b8-5a91-b6fe-f63795b454b8",
+        "Analog Circuits",
+        "analog-circuits",
+        {
+          "metaId": 507,
+          "country": 5,
+          "examGroup": 380,
+          "key": 508,
+          "createdAt": 509,
+          "description": 8,
+          "name": 510,
+          "updatedAt": 511,
+          "keyValuePairs": 512,
+          "order": 117,
+          "title": 510,
+          "type": 24,
+          "image": 513,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 514,
+          "subjects": 515
+        },
+        "f503abea-1c67-589b-baa2-0a447c9c0121",
+        "gate-ee",
+        "2020-08-24T22:56:49.093Z",
+        "GATE EE",
+        "2022-03-04T04:23:49.141Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/ee.png",
+        [
+          76,
+          77
+        ],
+        [
+          516,
+          520,
+          524,
+          526,
+          528,
+          532,
+          536,
+          540,
+          544,
+          548,
+          550,
+          554
+        ],
+        {
+          "metaId": 517,
+          "title": 518,
+          "key": 519,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "0636b424-670d-5b5e-8c0f-2f74541e17fa",
+        "Electric Circuits",
+        "electric-circuits",
+        {
+          "metaId": 521,
+          "title": 522,
+          "key": 523,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "fc232a73-2c5f-55e1-a5dc-d1d6fa0f47e2",
+        "Electrical Machines",
+        "electrical-machines",
+        {
+          "metaId": 525,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "4695460f-7b38-5d70-8318-af4f2be10bdb",
+        {
+          "metaId": 527,
+          "title": 476,
+          "key": 477,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "05901bbe-cb46-5d8e-9e6e-cf72a932b02a",
+        {
+          "metaId": 529,
+          "title": 530,
+          "key": 531,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "cafe8c47-ae5e-54c9-8e92-5095672eba57",
+        "Power Electronics",
+        "power-electronics",
+        {
+          "metaId": 533,
+          "title": 534,
+          "key": 535,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "11d62220-f8c6-5de7-9af6-41e056931dd3",
+        "Power System Analysis",
+        "power-system-analysis",
+        {
+          "metaId": 537,
+          "title": 538,
+          "key": 539,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "7b71731d-367c-50d8-a7b2-ffcdae9a017c",
+        "Digital Electronics",
+        "digital-electronics",
+        {
+          "metaId": 541,
+          "title": 542,
+          "key": 543,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "2b07c48b-20a7-59ee-a225-72071fa2d4c4",
+        "Analog Electronics",
+        "analog-electronics",
+        {
+          "metaId": 545,
+          "title": 546,
+          "key": 547,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "dc1a8901-9850-58e3-9006-3a968d9281d2",
+        "Electromagnetic Fields",
+        "electromagnetic-fields",
+        {
+          "metaId": 549,
+          "title": 492,
+          "key": 493,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "d72adace-7f10-5e30-a566-cd59383a209c",
+        {
+          "metaId": 551,
+          "title": 552,
+          "key": 553,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "d0845e92-4330-5f71-ab8f-f0dd9352ce14",
+        "Electrical and Electronics Measurement",
+        "electrical-and-electronics-measurement",
+        {
+          "metaId": 555,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 508
+        },
+        "c4f198c2-24b7-55b3-9fb1-bc44912b1d21",
+        {
+          "metaId": 557,
+          "country": 5,
+          "examGroup": 380,
+          "key": 558,
+          "createdAt": 559,
+          "description": 8,
+          "name": 560,
+          "updatedAt": 561,
+          "keyValuePairs": 562,
+          "order": 138,
+          "title": 560,
+          "type": 24,
+          "image": 563,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 564,
+          "subjects": 565
+        },
+        "f40e568d-a61e-5542-9850-6a5f273a20cc",
+        "gate-me",
+        "2020-08-24T22:57:03.755Z",
+        "GATE ME",
+        "2022-03-04T04:25:17.065Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/me.png",
+        [
+          76,
+          77
+        ],
+        [
+          566,
+          570,
+          572,
+          576,
+          580,
+          584,
+          588,
+          592,
+          596,
+          600,
+          602,
+          606
+        ],
+        {
+          "metaId": 567,
+          "title": 568,
+          "key": 569,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "5c7aaaae-69f3-555d-bfc9-02e026571349",
+        "Production Engineering",
+        "production-engineering",
+        {
+          "metaId": 571,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "2cf1c953-be3f-5a34-9e88-72b5185f8c23",
+        {
+          "metaId": 573,
+          "title": 574,
+          "key": 575,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "b7dc22cc-321a-5f26-ad4f-9272eaaea4b7",
+        "Fluid Mechanics",
+        "fluid-mechanics",
+        {
+          "metaId": 577,
+          "title": 578,
+          "key": 579,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "a115c107-8a42-5ba9-a40c-e8db9dede593",
+        "Heat Transfer",
+        "heat-transfer",
+        {
+          "metaId": 581,
+          "title": 582,
+          "key": 583,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "23d30ccf-bb82-5ea6-b2ed-272dc361d051",
+        "Thermodynamics",
+        "thermodynamics",
+        {
+          "metaId": 585,
+          "title": 586,
+          "key": 587,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "705cc1d0-6254-5696-828c-a6c5673eb2d0",
+        "Engineering Mechanics",
+        "engineering-mechanics",
+        {
+          "metaId": 589,
+          "title": 590,
+          "key": 591,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "1616aa5c-9f75-52ac-b702-ec39db724201",
+        "Machine Design",
+        "machine-design",
+        {
+          "metaId": 593,
+          "title": 594,
+          "key": 595,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "5bc5dce5-0986-5fda-bc51-388dd5ba9369",
+        "Industrial Engineering",
+        "industrial-engineering",
+        {
+          "metaId": 597,
+          "title": 598,
+          "key": 599,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "3ac7a798-4236-59f6-9e4b-5e1198761ee9",
+        "Strength of Materials",
+        "strength-of-materials",
+        {
+          "metaId": 601,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "458ccb47-7155-5c63-8d0d-9259c69c5c16",
+        {
+          "metaId": 603,
+          "title": 604,
+          "key": 605,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "fa240df1-31fd-5b07-b53a-bd22eac5a6f2",
+        "Theory of Machines",
+        "theory-of-machines",
+        {
+          "metaId": 607,
+          "title": 608,
+          "key": 609,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 558
+        },
+        "c478f29f-70ec-522a-a0fa-587908d06dd3",
+        "Turbo Machinery",
+        "turbo-machinery",
+        {
+          "metaId": 611,
+          "country": 5,
+          "examGroup": 380,
+          "key": 612,
+          "createdAt": 613,
+          "description": 8,
+          "name": 614,
+          "updatedAt": 615,
+          "keyValuePairs": 616,
+          "order": 45,
+          "title": 614,
+          "type": 24,
+          "image": 617,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 618,
+          "subjects": 619
+        },
+        "50be1e92-1a20-5c91-b527-6c37a96ae89e",
+        "gate-ce",
+        "2020-08-24T22:57:23.936Z",
+        "GATE CE",
+        "2022-03-04T04:26:21.209Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/ce.png",
+        [
+          76,
+          77
+        ],
+        [
+          620,
+          624,
+          628,
+          632,
+          636,
+          640,
+          644,
+          646,
+          650,
+          654,
+          658,
+          662,
+          664,
+          668,
+          670
+        ],
+        {
+          "metaId": 621,
+          "title": 622,
+          "key": 623,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "d9670532-3fee-5717-9054-1afae825ff3c",
+        "Structural Analysis",
+        "structural-analysis",
+        {
+          "metaId": 625,
+          "title": 626,
+          "key": 627,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "438a92f0-b9e9-5132-9bec-56b0f6c9e0db",
+        "Fluid Mechanics and Hydraulic Machines",
+        "fluid-mechanics-and-hydraulic-machines",
+        {
+          "metaId": 629,
+          "title": 630,
+          "key": 631,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "b4f4489e-6671-5994-a8f4-95f7f01fe5f3",
+        "Strength of Materials Or Solid Mechanics",
+        "strength-of-materials-or-solid-mechanics",
+        {
+          "metaId": 633,
+          "title": 634,
+          "key": 635,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "7fb204d0-25b7-5bcc-b4dc-174712503b59",
+        "Reinforced Cement Concrete",
+        "reinforced-cement-concrete",
+        {
+          "metaId": 637,
+          "title": 638,
+          "key": 639,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "92f73258-c880-5591-8f91-3f7a312f1fbd",
+        "Construction Material and Management",
+        "construction-material-and-management",
+        {
+          "metaId": 641,
+          "title": 642,
+          "key": 643,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "7d07a4cc-14ce-5d3a-a204-148050695458",
+        "Geotechnical Engineering",
+        "geotechnical-engineering",
+        {
+          "metaId": 645,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "4ddb57c1-8c5d-5aa4-bc89-c5e66c58c7d1",
+        {
+          "metaId": 647,
+          "title": 648,
+          "key": 649,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "9a2124bd-ac4f-5c6f-8944-24ddbe51faca",
+        "Environmental Engineering",
+        "environmental-engineering",
+        {
+          "metaId": 651,
+          "title": 652,
+          "key": 653,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "84d696f2-f3be-5a4e-8fe6-a6471e5b495c",
+        "Steel Structures",
+        "steel-structures",
+        {
+          "metaId": 655,
+          "title": 656,
+          "key": 657,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "414604e0-8157-5cbe-accf-5ad099454a33",
+        "Hydrology",
+        "hydrology",
+        {
+          "metaId": 659,
+          "title": 660,
+          "key": 661,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "419f3516-92e8-55b5-90c6-9de158a2bd34",
+        "Transportation Engineering",
+        "transportation-engineering",
+        {
+          "metaId": 663,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "19832b99-e2e4-50f8-9485-2a925537bd81",
+        {
+          "metaId": 665,
+          "title": 666,
+          "key": 667,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "dc775c99-b4e7-57b6-a6ce-7aee2e0a0cca",
+        "Irrigation",
+        "irrigation",
+        {
+          "metaId": 669,
+          "title": 586,
+          "key": 587,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "a9e1c2f9-c979-5594-a9e7-30009879ed28",
+        {
+          "metaId": 671,
+          "title": 672,
+          "key": 673,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 612
+        },
+        "ecb1b2aa-884b-5dfa-8181-289d79c37a4a",
+        "Geomatics Engineering Or Surveying",
+        "geomatics-engineering-or-surveying",
+        {
+          "metaId": 675,
+          "country": 5,
+          "examGroup": 380,
+          "key": 676,
+          "createdAt": 677,
+          "description": 8,
+          "name": 678,
+          "updatedAt": 679,
+          "keyValuePairs": 680,
+          "order": 54,
+          "title": 678,
+          "type": 24,
+          "image": 681,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 682,
+          "subjects": 683
+        },
+        "0a2e06b2-d550-523d-b388-9fc3c8e3baee",
+        "gate-pi",
+        "2020-08-24T22:57:35.411Z",
+        "GATE PI",
+        "2022-03-04T04:28:34.473Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/pi.png",
+        [
+          76,
+          77
+        ],
+        [
+          684,
+          686,
+          688,
+          690,
+          694,
+          698,
+          702,
+          706,
+          708,
+          710,
+          712,
+          714,
+          716,
+          718
+        ],
+        {
+          "metaId": 685,
+          "title": 586,
+          "key": 587,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "732e12d6-20e7-5f06-a79f-2ea12e45c66f",
+        {
+          "metaId": 687,
+          "title": 604,
+          "key": 605,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "6c548908-56b4-53d8-a7e6-062db34ee1a7",
+        {
+          "metaId": 689,
+          "title": 582,
+          "key": 583,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "947f8312-c481-5bcd-a783-df7e9ef6620e",
+        {
+          "metaId": 691,
+          "title": 692,
+          "key": 693,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "6b02eabb-296e-58dd-abd1-6c612eae04e6",
+        "Machine Tools and Machining",
+        "machine-tools-and-machining",
+        {
+          "metaId": 695,
+          "title": 696,
+          "key": 697,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "c47cc7e9-2098-52cb-9b59-ef890dd46737",
+        "Metrology",
+        "metrology",
+        {
+          "metaId": 699,
+          "title": 700,
+          "key": 701,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "fa3e7167-5cbe-5143-8efe-0cd57a9fd51f",
+        "Joining of Materials",
+        "joining-of-materials",
+        {
+          "metaId": 703,
+          "title": 704,
+          "key": 705,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "ff87c085-e9a3-55f7-ac3b-ba93d09ff517",
+        "Casting",
+        "casting",
+        {
+          "metaId": 707,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "4644cc46-146b-5bef-b6a5-5619f86f59a1",
+        {
+          "metaId": 709,
+          "title": 594,
+          "key": 595,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "4cf71ee0-3089-5af3-a5f7-ef3c71c7920e",
+        {
+          "metaId": 711,
+          "title": 574,
+          "key": 575,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "60149eb3-1fc0-5c97-9431-043d63d06818",
+        {
+          "metaId": 713,
+          "title": 598,
+          "key": 599,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "a6bd6908-64b6-5b35-9fc6-1321f5ab845d",
+        {
+          "metaId": 715,
+          "title": 590,
+          "key": 591,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "73caf7c8-a656-5921-8cbc-c38138805130",
+        {
+          "metaId": 717,
+          "title": 578,
+          "key": 579,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "be3e28c8-0f7c-502c-84e7-7f13bc8ae3a6",
+        {
+          "metaId": 719,
+          "title": 720,
+          "key": 721,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 676
+        },
+        "24410ec0-2571-5cc7-aaf3-8bd14fb5770a",
+        "Metal Forming",
+        "metal-forming",
+        {
+          "metaId": 723,
+          "country": 5,
+          "examGroup": 380,
+          "key": 724,
+          "createdAt": 725,
+          "description": 8,
+          "name": 726,
+          "updatedAt": 727,
+          "keyValuePairs": 728,
+          "order": 208,
+          "title": 726,
+          "type": 24,
+          "image": 729,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 730,
+          "subjects": 731
+        },
+        "d229641f-a783-56bd-99e6-f7da2631a251",
+        "gate-in",
+        "2020-08-24T22:57:44.939Z",
+        "GATE IN",
+        "2022-03-04T04:28:40.657Z",
+        {},
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/in/gate/in.png",
+        [
+          76,
+          77
+        ],
+        [
+          732
+        ],
+        {
+          "metaId": 733,
+          "title": 500,
+          "key": 501,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 724
+        },
+        "23330f47-ece2-5e33-9742-08b19ae9a2db",
+        {
+          "type": 24,
+          "country": 5,
+          "examGroup": 380,
+          "key": 735,
+          "apps": 736,
+          "badges": 737,
+          "createdAt": 738,
+          "description": 8,
+          "image": 394,
+          "keyValuePairs": 739,
+          "metaId": 740,
+          "quiz": 741,
+          "title": 743,
+          "updatedAt": 738,
+          "order": 229,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 744,
+          "subjects": 745
+        },
+        "gate-da",
+        [],
+        [],
+        "2025-07-25T01:21:17.952Z",
+        {},
+        "c9a17f1a-4398-59fc-a2d2-0e0d884637f9",
+        {
+          "subjects": 742
+        },
+        [],
+        "GATE Data Science and Artificial Intelligence",
+        [
+          76,
+          77
+        ],
+        [
+          746,
+          748,
+          750,
+          754,
+          758,
+          762,
+          766,
+          768
+        ],
+        {
+          "metaId": 747,
+          "title": 440,
+          "key": 441,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "03642c4d-0e8a-5d15-9105-4104e695cf3d",
+        {
+          "metaId": 749,
+          "title": 444,
+          "key": 445,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "e1fbd49e-59c9-537a-bdc1-645a8d05dd68",
+        {
+          "metaId": 751,
+          "title": 752,
+          "key": 753,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "02900225-ba72-5d49-bac1-8ce4e9c4901b",
+        "Artificial Intelligence",
+        "artificial-intelligence",
+        {
+          "metaId": 755,
+          "title": 756,
+          "key": 757,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "b7e234c9-9bc8-5eb3-b91b-e92472c5c1e5",
+        "Machine Learning",
+        "machine-learning",
+        {
+          "metaId": 759,
+          "title": 760,
+          "key": 761,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "930245ab-6993-513b-b3e9-4b1eb807e410",
+        "Database Management System and Warehousing",
+        "database-management-system-and-warehousing",
+        {
+          "metaId": 763,
+          "title": 764,
+          "key": 765,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "9e94fc5b-5d66-58af-9911-0303fbcb6450",
+        "Python Programming",
+        "python-programming",
+        {
+          "metaId": 767,
+          "title": 420,
+          "key": 421,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "4224e647-2fa2-532d-8e32-0f599038e82d",
+        {
+          "metaId": 769,
+          "title": 408,
+          "key": 409,
+          "country": 5,
+          "examGroup": 380,
+          "exam": 735
+        },
+        "18646ea6-be4f-5eb7-b5a2-a0f69a26af04",
+        {
+          "key": 771,
+          "type": 13,
+          "country": 5,
+          "createdAt": 772,
+          "description": 8,
+          "keyValuePairs": 773,
+          "metaId": 774,
+          "title": 775,
+          "updatedAt": 772,
+          "order": 138,
+          "exams": 776
+        },
+        "civil-services",
+        "2024-05-02T11:08:19.006Z",
+        {},
+        "32ffba14-f9f2-55e1-a751-151bca82d448",
+        "Civil Services",
+        [
+          777
+        ],
+        {
+          "country": 5,
+          "examGroup": 771,
+          "key": 778,
+          "type": 24,
+          "createdAt": 779,
+          "description": 8,
+          "image": 780,
+          "keyValuePairs": 781,
+          "metaId": 782,
+          "order": 14,
+          "title": 783,
+          "updatedAt": 784,
+          "apps": 785,
+          "badges": 786,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 787,
+          "subjects": 788
+        },
+        "upsc-civil-service",
+        "2021-10-19T04:48:31.124Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/5934fd03-d35c-42e7-b582-f058dd46bd57/324c2970-0876-11ef-b9c4-01b5e1672438/6y3zli1lvp5p37s.png",
+        {},
+        "5888e4ef-4fc0-5f42-bf8f-550235c1a3db",
+        "UPSC Civil Service",
+        "2024-05-02T11:23:29.117Z",
+        [],
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          789,
+          793,
+          797,
+          801,
+          805,
+          809,
+          813,
+          817,
+          821,
+          825,
+          829
+        ],
+        {
+          "metaId": 790,
+          "title": 791,
+          "key": 792,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "cd32b49f-33a1-5993-be6c-f4c3d1ef90d4",
+        "History of India",
+        "history-of-india",
+        {
+          "metaId": 794,
+          "title": 795,
+          "key": 796,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "71f5a95f-ab17-521e-9fa4-fe29d73b4fd5",
+        "Science and Technology",
+        "science-and-technology",
+        {
+          "metaId": 798,
+          "title": 799,
+          "key": 800,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "9d7f55b3-ce00-5f6e-aefb-7a5c38c358a7",
+        "Geography",
+        "geography",
+        {
+          "metaId": 802,
+          "title": 803,
+          "key": 804,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "3f113af7-7434-54f7-9373-5c39bf059c8e",
+        "Ecology and Environment",
+        "ecology-and-environment",
+        {
+          "metaId": 806,
+          "title": 807,
+          "key": 808,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "b66467ee-55c9-50f4-b568-b3b74eb99a78",
+        "Indian Polity and Governance",
+        "indian-polity-and-governance",
+        {
+          "metaId": 810,
+          "title": 811,
+          "key": 812,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "085c8f26-242a-5824-b8b0-d9c09e94df66",
+        "Economy",
+        "economy",
+        {
+          "metaId": 814,
+          "title": 815,
+          "key": 816,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "643f3ee0-64c8-5088-b336-ab329e02d7ef",
+        "Current Affairs",
+        "current-affairs",
+        {
+          "metaId": 818,
+          "title": 819,
+          "key": 820,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "8a8f0e9f-097d-58c0-ad58-5cfcd3d42e33",
+        "Comprehension",
+        "comprehension",
+        {
+          "metaId": 822,
+          "title": 823,
+          "key": 824,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "8fd08bdc-2aae-58a0-ac41-1bb3ba93cd6b",
+        "Basic Numeracy",
+        "basic-numeracy",
+        {
+          "metaId": 826,
+          "title": 827,
+          "key": 828,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "dea24d6e-28df-52ee-8190-faae4f027a2f",
+        "Logical Reasoning and General Mental Ability",
+        "logical-reasoning-and-general-mental-ability",
+        {
+          "metaId": 830,
+          "title": 831,
+          "key": 832,
+          "country": 5,
+          "examGroup": 771,
+          "exam": 778
+        },
+        "b5e8164c-73d7-58eb-9c4f-88556735221d",
+        "Data Interpretation and Sufficiency",
+        "data-interpretation",
+        {
+          "metaId": 834,
+          "country": 5,
+          "key": 835,
+          "createdAt": 836,
+          "description": 8,
+          "keyValuePairs": 837,
+          "title": 838,
+          "updatedAt": 836,
+          "type": 13,
+          "order": 45,
+          "exams": 839
+        },
+        "b166df24-9638-553d-b2e3-7c91805b2e46",
+        "defence",
+        "2021-07-16T06:20:30.972Z",
+        {},
+        "Defence",
+        [
+          840
+        ],
+        {
+          "metaId": 841,
+          "country": 5,
+          "examGroup": 835,
+          "key": 842,
+          "createdAt": 843,
+          "description": 8,
+          "image": 844,
+          "keyValuePairs": 845,
+          "order": 14,
+          "title": 846,
+          "updatedAt": 847,
+          "type": 24,
+          "apps": 848,
+          "badges": 850,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 851,
+          "subjects": 852
+        },
+        "ae12242c-2043-5d12-97f1-4863e7f59180",
+        "nda",
+        "2021-07-16T06:21:07.078Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/624092ec-6f87-4440-9fac-93c921e8668e/c68613a0-1bde-11ef-ba88-abbdc110e2a5/6y3zli1lwog7v8b.png",
+        {},
+        "NDA",
+        "2024-05-27T04:09:04.104Z",
+        [
+          35,
+          849,
+          34
+        ],
+        "com.examgoal.ndapreparation.app",
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          853,
+          855,
+          857,
+          861
+        ],
+        {
+          "metaId": 854,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 835,
+          "exam": 842
+        },
+        "528efb89-552b-5172-9ff8-4eb4d975bb62",
+        {
+          "metaId": 856,
+          "title": 244,
+          "key": 245,
+          "country": 5,
+          "examGroup": 835,
+          "exam": 842
+        },
+        "c2e2ea99-1815-50b1-85ef-732896b7c621",
+        {
+          "metaId": 858,
+          "title": 859,
+          "key": 860,
+          "country": 5,
+          "examGroup": 835,
+          "exam": 842
+        },
+        "f9eeca20-a650-5666-9c50-18d44b48b6c6",
+        "General Science",
+        "general-science",
+        {
+          "metaId": 862,
+          "title": 863,
+          "key": 864,
+          "country": 5,
+          "examGroup": 835,
+          "exam": 842
+        },
+        "ef513015-732f-5f09-b7d7-754e06cfb1a9",
+        "General Studies",
+        "general-studies",
+        {
+          "metaId": 866,
+          "country": 5,
+          "key": 867,
+          "createdAt": 868,
+          "description": 8,
+          "name": 869,
+          "updatedAt": 870,
+          "title": 871,
+          "keyValuePairs": 872,
+          "type": 13,
+          "order": 54,
+          "exams": 873
+        },
+        "20819be6-8325-537b-9017-0a9518020e4e",
+        "ssc",
+        "2020-08-24T22:55:52.225Z",
+        "SSC",
+        "2020-12-19T05:55:13.990Z",
+        "Staff Selection Commission",
+        {},
+        [
+          874
+        ],
+        {
+          "metaId": 875,
+          "country": 5,
+          "examGroup": 867,
+          "key": 876,
+          "createdAt": 877,
+          "description": 8,
+          "keyValuePairs": 878,
+          "order": 14,
+          "title": 879,
+          "updatedAt": 880,
+          "type": 24,
+          "apps": 881,
+          "badges": 882,
+          "image": 883,
+          "quiz": 884,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 886,
+          "subjects": 887
+        },
+        "3911a0aa-0693-5c54-9ca0-c4505fba880f",
+        "ssc-cgl-tier-i",
+        "2020-12-22T06:51:03.399Z",
+        {},
+        "SSC CGL Tier I",
+        "2024-08-23T04:16:11.723Z",
+        [],
+        [],
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/assets/c293926d-776b-4c5d-87c7-c94d7c4c1112/614e3c70-6106-11ef-a495-011539d502ba/jaoe38c1m06789mf.png",
+        {
+          "subjects": 885
+        },
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          888,
+          892,
+          896,
+          900
+        ],
+        {
+          "metaId": 889,
+          "title": 890,
+          "key": 891,
+          "country": 5,
+          "examGroup": 867,
+          "exam": 876
+        },
+        "40549513-7ee4-5092-a0b2-c860957dd8c5",
+        "Quantitative Aptitude",
+        "quantitative-aptitude",
+        {
+          "metaId": 893,
+          "title": 894,
+          "key": 895,
+          "country": 5,
+          "examGroup": 867,
+          "exam": 876
+        },
+        "19a91487-44ea-53cb-a2e1-7711466083fb",
+        "General Intelligence and Reasoning",
+        "general-intelligence-and-reasoning",
+        {
+          "metaId": 897,
+          "title": 898,
+          "key": 899,
+          "country": 5,
+          "examGroup": 867,
+          "exam": 876
+        },
+        "112ec1af-7767-508a-bf60-5ced60480625",
+        "General Awareness",
+        "general-awareness",
+        {
+          "metaId": 901,
+          "title": 902,
+          "key": 903,
+          "country": 5,
+          "examGroup": 867,
+          "exam": 876
+        },
+        "023e2dcc-621f-539b-986f-2c7f9c05cd10",
+        "English Comprehension",
+        "english-comprehension",
+        {
+          "country": 5,
+          "key": 905,
+          "type": 13,
+          "createdAt": 906,
+          "description": 8,
+          "keyValuePairs": 907,
+          "metaId": 908,
+          "title": 909,
+          "updatedAt": 906,
+          "order": 208,
+          "exams": 910
+        },
+        "cbse",
+        "2021-12-06T14:25:38.957Z",
+        {},
+        "d22f934d-2a1f-5c3f-ab76-304a72f2fa4f",
+        "CBSE",
+        [
+          911
+        ],
+        {
+          "country": 5,
+          "examGroup": 905,
+          "key": 912,
+          "type": 24,
+          "createdAt": 913,
+          "description": 8,
+          "image": 914,
+          "keyValuePairs": 915,
+          "metaId": 916,
+          "order": 14,
+          "title": 917,
+          "updatedAt": 918,
+          "badges": 919,
+          "past_desc": 73,
+          "solved": 395,
+          "sections": 920,
+          "subjects": 921
+        },
+        "class-12",
+        "2021-12-06T18:16:08.836Z",
+        "https://app-assets.cdn.examgoal.net/fly/@width/image/exam-icons/cbse.png",
+        {},
+        "9990e3cc-d4c9-59c0-95cc-7c362f6d79f8",
+        "Class 12",
+        "2024-01-13T20:24:34.110Z",
+        [],
+        [
+          76,
+          77
+        ],
+        [
+          922,
+          924,
+          926
+        ],
+        {
+          "metaId": 923,
+          "title": 81,
+          "key": 39,
+          "country": 5,
+          "examGroup": 905,
+          "exam": 912
+        },
+        "b3bf374f-e13b-5651-a033-ea7ac05b04ad",
+        {
+          "metaId": 925,
+          "title": 84,
+          "key": 56,
+          "country": 5,
+          "examGroup": 905,
+          "exam": 912
+        },
+        "55bbc4c8-ea73-5f10-a497-fd1a569f251e",
+        {
+          "metaId": 927,
+          "title": 87,
+          "key": 65,
+          "country": 5,
+          "examGroup": 905,
+          "exam": 912
+        },
+        "03157ac4-3eee-545e-938c-500b5fa800ce"
+      ],
+      "uses": {}
+    },
+    {
+      "type": "error",
+      "error": {
+        "message": "Not found"
+      },
+      "status": 404
+    }
+  ]
+}

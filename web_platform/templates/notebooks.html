@@ -1,0 +1,160 @@
+{% extends "base.html" %}
+{% block title %}My Notebooks{% endblock %}
+{% block page_id %}notebooks{% endblock %}
+
+{% block content %}
+<div style="padding:0 0 60px">
+  <!-- Header -->
+  <div style="display:flex;align-items:center;justify-content:space-between;padding:20px 0 24px;border-bottom:1px solid rgba(255,255,255,0.07);margin-bottom:24px">
+    <div>
+      <div style="font-size:20px;font-weight:800;color:#E8EDF5">My Notebooks</div>
+      <div style="font-size:13px;color:#7A869A;margin-top:2px">Saved questions aur notes</div>
+    </div>
+    <button onclick="showCreateModal()" style="
+      background:#1DD4C0;color:#111520;border:none;border-radius:10px;
+      padding:10px 20px;font-weight:700;cursor:pointer;font-size:14px;
+      font-family:'Plus Jakarta Sans',sans-serif
+    ">+ New Notebook</button>
+  </div>
+
+  <!-- Notebooks Grid -->
+  <div id="notebooks-grid" style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:32px">
+    <!-- JS se fill hoga -->
+  </div>
+
+  <!-- Questions List -->
+  <div id="questions-section" style="display:none">
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+      <button onclick="backToNotebooks()" style="background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);color:#E8EDF5;border-radius:8px;padding:6px 14px;cursor:pointer;font-size:13px">← Back</button>
+      <div style="font-size:18px;font-weight:700;color:#E8EDF5" id="active-notebook-name"></div>
+    </div>
+    <div id="questions-list" style="display:flex;flex-direction:column;gap:12px"></div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+<script>
+let activeNotebookId = null;
+
+async function loadNotebooks() {
+  const res = await fetch('/api/notebooks/');
+  const data = await res.json();
+  const grid = document.getElementById('notebooks-grid');
+  if (!data.notebooks.length) {
+    grid.innerHTML = '<p style="color:#7A869A;text-align:center;padding:40px;grid-column:1/-1">Koi notebook nahi. Pehla banao! 📚</p>';
+    return;
+  }
+  grid.innerHTML = data.notebooks.map(nb => `
+    <div onclick="loadQuestions(${nb.id}, '${nb.name}')" style="
+      background:#1C2333;border:1px solid rgba(255,255,255,0.07);border-radius:16px;
+      padding:20px;cursor:pointer;transition:all 0.15s;
+    " onmouseover="this.style.borderColor='rgba(255,255,255,0.2)'"
+       onmouseout="this.style.borderColor='rgba(255,255,255,0.07)'">
+      <div style="width:40px;height:40px;border-radius:10px;background:${nb.color}22;border:2px solid ${nb.color};display:flex;align-items:center;justify-content:center;margin-bottom:12px;font-size:18px">📓</div>
+      <div style="font-size:16px;font-weight:700;color:#E8EDF5">${nb.name}</div>
+      <div style="font-size:12px;color:#7A869A;margin-top:4px">Click to view questions</div>
+    </div>
+  `).join('');
+}
+
+function renderQuestionText(q) {
+  let text = q.question_text || '';
+  
+  // Fix LaTeX escaping for MathJax
+  let s = text.replace(/\\\\/g, '\\');
+  s = s.replace(/\\mathrm\{([^}]*)\}/g, (match, inner) => {
+    return '\\mathrm{' + inner.replace(/~/g, ' ') + '}';
+  });
+  s = s.replace(/\$\$([^$]+)\$\$/g, (m, inner) => {
+    if (inner.includes('\n') || inner.length > 80) return m;
+    return '\\(' + inner.trim() + '\\)';
+  });
+  text = s;
+
+  if (!q.match_list_parsed) return text;
+
+  const p = q.match_list_parsed;
+  let rowsHtml = '';
+  p.rows.forEach((row, i) => {
+    const rowBg = (i % 2 !== 0) ? 'background: rgba(30,41,59,0.5)' : 'background: rgba(30,41,59,0.25)';
+    const borderB = (i !== p.rows.length - 1) ? 'border-bottom: 1px solid rgba(71,85,105,0.5);' : '';
+    rowsHtml += `
+      <div style="display: grid; grid-template-columns: 1fr 1fr; ${borderB} ${rowBg}">
+          <div style="display: flex; align-items: start; gap: 12px; padding: 14px 20px; border-right: 1px solid rgba(71,85,105,0.5);">
+              ${row.left_key ? `<span style="flex-shrink:0; width:28px; height:28px; border-radius:50%; background:rgba(20,184,166,0.15); border:1px solid rgba(20,184,166,0.3); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#1DD4C0">${row.left_key}</span>` : ''}
+              <span style="font-size:14px; color:#F1F5F9; line-height:1.6; padding-top:4px;">${row.left_val}</span>
+          </div>
+          <div style="display: flex; align-items: start; gap: 12px; padding: 14px 20px;">
+              ${row.right_key ? `<span style="flex-shrink:0; width:28px; height:28px; border-radius:50%; background:rgba(168,85,247,0.15); border:1px solid rgba(168,85,247,0.3); display:flex; align-items:center; justify-content:center; font-size:13px; font-weight:700; color:#c084fc">${row.right_key}</span>` : ''}
+              <span style="font-size:14px; color:#F1F5F9; line-height:1.6; padding-top:4px;">${row.right_val}</span>
+          </div>
+      </div>`;
+  });
+
+  return `
+    <div style="margin-bottom: 24px;">
+        <div style="display:inline-flex; align-items:center; gap:8px; padding:6px 12px; border-radius:8px; background:rgba(245,158,11,0.1); border:1px solid rgba(245,158,11,0.25); margin-bottom:16px;">
+            <span style="font-size:12px; font-weight:600; letter-spacing:0.1em; color:#fbbf24; text-transform:uppercase;">Match The Column</span>
+        </div>
+        <div style="border-radius:12px; overflow:hidden; border:1px solid rgba(71,85,105,0.4); margin-bottom: 12px;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr;">
+                <div style="background: rgba(13,148,136,0.15); padding: 12px 20px; border-bottom: 1px solid rgba(71,85,105,0.4); border-right: 1px solid rgba(71,85,105,0.4);">
+                    <p style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#1DD4C0; text-transform:uppercase;">List — I</p>
+                    <p style="font-size:12px; color:#94a3b8; margin-top:4px">${p.col1_header}</p>
+                </div>
+                <div style="background: rgba(168,85,247,0.15); padding: 12px 20px; border-bottom: 1px solid rgba(71,85,105,0.4);">
+                    <p style="font-size:12px; font-weight:700; letter-spacing:0.1em; color:#c084fc; text-transform:uppercase;">List — II</p>
+                    <p style="font-size:12px; color:#94a3b8; margin-top:4px">${p.col2_header}</p>
+                </div>
+            </div>
+            ${rowsHtml}
+        </div>
+        ${p.footer ? `<p style="font-size:13px; color:#94a3b8; font-style:italic;">${p.footer}</p>` : ''}
+    </div>
+  `;
+}
+
+async function loadQuestions(notebookId, name) {
+  activeNotebookId = notebookId;
+  document.getElementById('active-notebook-name').textContent = name;
+  document.getElementById('notebooks-grid').style.display = 'none';
+  document.getElementById('questions-section').style.display = 'block';
+  
+  const res = await fetch(`/api/notebooks/${notebookId}/questions`);
+  const data = await res.json();
+  const list = document.getElementById('questions-list');
+  
+  if (!data.questions.length) {
+    list.innerHTML = '<p style="color:#7A869A;text-align:center;padding:40px">Is notebook mein koi question nahi.</p>';
+    return;
+  }
+  
+  list.innerHTML = data.questions.map(q => `
+    <div style="background:#1C2333;border:1px solid rgba(255,255,255,0.07);border-radius:14px;padding:18px">
+      <div style="display:flex;gap:8px;margin-bottom:10px;flex-wrap:wrap">
+        <span style="background:rgba(29,212,192,0.12);color:#1DD4C0;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">${q.subject?.toUpperCase()}</span>
+        <span style="background:rgba(255,107,53,0.12);color:#FF6B35;padding:3px 10px;border-radius:20px;font-size:11px;font-weight:700">NEET ${q.year}</span>
+        ${(q.tags||[]).map(t => `<span style="background:rgba(255,255,255,0.06);color:#A0AABA;padding:3px 10px;border-radius:20px;font-size:11px">${t}</span>`).join('')}
+      </div>
+      <div style="font-size:14px;color:#E8EDF5;line-height:1.6;margin-bottom:${q.note ? '10px' : '0'}; overflow-x:auto;">${renderQuestionText(q)}</div>
+      ${q.note ? `<div style="background:rgba(29,212,192,0.05);border-left:3px solid #1DD4C0;padding:8px 12px;border-radius:0 8px 8px 0;font-size:13px;color:#A0AABA;font-style:italic">📝 ${q.note}</div>` : ''}
+      <div style="margin-top:12px">
+        <a href="/practice/${encodeURIComponent(q.chapter)}?q=${q.global_index}" style="color:#1DD4C0;font-size:13px;font-weight:600;text-decoration:none">Practice this question →</a>
+      </div>
+    </div>
+  `).join('');
+
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([list]).catch(err => console.error(err));
+  }
+}
+
+function backToNotebooks() {
+  document.getElementById('notebooks-grid').style.display = 'grid';
+  document.getElementById('questions-section').style.display = 'none';
+}
+
+loadNotebooks();
+</script>
+{% endblock %}

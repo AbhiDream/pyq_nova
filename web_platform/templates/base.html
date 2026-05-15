@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PYQNova — AI-powered NEET PYQ practice platform with 6500+ questions.">
+  <title>{% block title %}PYQNova{% endblock %} — AI-Powered NEET Practice</title>
+
+  <!-- Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Icons: Lucide -->
+  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+  <!-- MathJax config (must be before CDN) -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true,
+        packages: {'[+]': ['ams']}
+      },
+      options: {
+        ignoreHtmlClass: 'tex2jax_ignore',
+        processHtmlClass: 'tex2jax_process'
+      },
+      loader: {load: ['[tex]/ams']}
+    };
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js" async defer></script>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+  <!-- App CSS -->
+  <link rel="stylesheet" href="/static/css/style.css">
+  <link rel="stylesheet" href="/static/css/marks_theme.css">
+
+  {% block head %}{% endblock %}
+</head>
+<body data-page="{% block page_id %}base{% endblock %}">
+
+<div class="app-shell">
+  <!-- Sidebar -->
+  <nav class="sidebar" role="navigation" aria-label="Main navigation">
+
+    <!-- Logo -->
+    <a href="/" class="sidebar-logo">
+      <img src="/static/logo.png" alt="PYQNova Logo" onerror="this.style.display='none'">
+      <div class="sidebar-logo-text">
+        <span class="sidebar-logo-name">PYQ Nova</span>
+        <span class="sidebar-logo-sub">Premium EdTech</span>
+      </div>
+    </a>
+
+    <!-- Main nav -->
+    <a href="/" class="nav-item {% if request.url.path == '/' %}active{% endif %}" id="nav-home">
+      <i data-lucide="layout-dashboard"></i>
+      <span class="nav-text">Home</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-practice">
+      <i data-lucide="book-open"></i>
+      <span class="nav-text">Practice</span>
+    </a>
+
+    <a href="/notebooks" class="nav-item {% if request.url.path == '/notebooks' %}active{% endif %}">
+      <i data-lucide="bookmark"></i>
+      <span class="nav-text">Notebooks</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-tests">
+      <i data-lucide="file-text"></i>
+      <span class="nav-text">Mock Tests</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-performance">
+      <i data-lucide="bar-chart-2"></i>
+      <span class="nav-text">Performance</span>
+    </a>
+
+    <a href="#" class="nav-item" id="nav-revision">
+      <i data-lucide="refresh-cw"></i>
+      <span class="nav-text">Revision</span>
+    </a>
+
+    <div class="sidebar-spacer"></div>
+    <div class="sidebar-divider"></div>
+
+    {% if user %}
+    <a href="#" class="nav-item" id="nav-profile">
+      {% if user.picture %}
+      <img src="{{ user.picture }}" alt="Profile" style="width:24px;height:24px;border-radius:50%;">
+      {% else %}
+      <i data-lucide="user"></i>
+      {% endif %}
+      <span class="nav-text" style="text-transform: capitalize;">{{ user.name.split(' ')[0] if user.name else 'Profile' }}</span>
+    </a>
+    <a href="/auth/logout" class="nav-item" id="nav-logout">
+      <i data-lucide="log-out"></i>
+      <span class="nav-text">Sign Out</span>
+    </a>
+    {% else %}
+    <a href="/login" class="nav-item" id="nav-login">
+      <i data-lucide="log-in"></i>
+      <span class="nav-text">Sign In</span>
+    </a>
+    {% endif %}
+
+    <a href="#" class="nav-item" id="nav-premium">
+      <i data-lucide="crown" style="color:#FBBF24"></i>
+      <span class="nav-text" style="color:#FBBF24">Premium</span>
+    </a>
+
+  </nav>
+
+  <!-- Main content -->
+  <main class="main-content">
+    {% block content %}{% endblock %}
+  </main>
+</div>
+
+<!-- Toast -->
+<div id="toast" role="alert" aria-live="polite"></div>
+
+<!-- App JS -->
+<script>
+  window.USER_LOGGED_IN = {% if user %}true{% else %}false{% endif %};
+</script>
+<script src="/static/js/app.js?v=2.42"></script>
+<script>
+  // Init Lucide icons
+  if (window.lucide) lucide.createIcons();
+</script>
+{% block scripts %}{% endblock %}
+</body>
+</html>

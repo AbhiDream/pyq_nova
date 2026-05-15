@@ -1,0 +1,390 @@
+<!DOCTYPE html><html class="dark" lang="en"><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Profile - PYQ Nova</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed": "#e1e0ff",
+                "secondary": "#40e56c",
+                "secondary-fixed": "#69ff87",
+                "secondary-fixed-dim": "#3ce36a",
+                "outline": "#8b909f",
+                "tertiary-fixed-dim": "#c0c1ff",
+                "on-tertiary-fixed": "#07006c",
+                "background": "#0b1326",
+                "surface-container-highest": "#2d3449",
+                "on-primary-container": "#ffffff",
+                "on-error-container": "#ffdad6",
+                "surface-bright": "#31394d",
+                "inverse-primary": "#005bc0",
+                "inverse-on-surface": "#283044",
+                "on-error": "#690005",
+                "surface-container-low": "#131b2e",
+                "on-tertiary": "#1000a9",
+                "on-surface-variant": "#c1c6d6",
+                "primary-fixed-dim": "#adc7ff",
+                "on-secondary-fixed": "#002108",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "outline-variant": "#414754",
+                "on-secondary-fixed-variant": "#00531e",
+                "on-secondary-container": "#004d1b",
+                "surface-container": "#171f33",
+                "secondary-container": "#02c953",
+                "tertiary": "#c0c1ff",
+                "on-tertiary-container": "#ffffff",
+                "inverse-surface": "#dae2fd",
+                "on-primary-fixed": "#001a41",
+                "on-primary-fixed-variant": "#004493",
+                "surface-container-high": "#222a3d",
+                "primary-fixed": "#d8e2ff",
+                "primary": "#adc7ff",
+                "on-tertiary-fixed-variant": "#2f2ebe",
+                "primary-container": "#1a73e8",
+                "on-secondary": "#003912",
+                "surface-variant": "#2d3449",
+                "surface-dim": "#0b1326",
+                "surface-tint": "#adc7ff",
+                "tertiary-container": "#6265f0",
+                "on-surface": "#dae2fd",
+                "error": "#ffb4ab",
+                "error-container": "#93000a",
+                "surface": "#0b1326",
+                "on-primary": "#002e68"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "40px",
+                "stack-md": "16px",
+                "margin-mobile": "20px",
+                "gutter": "24px",
+                "container-max": "1280px",
+                "stack-lg": "32px",
+                "stack-sm": "8px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-surface-container-lowest text-on-surface font-body-md antialiased min-h-screen flex selection:bg-primary selection:text-on-primary">
+<!-- Top Navigation (Mobile Only) -->
+<header class="md:hidden sticky top-0 z-50 flex justify-between items-center px-container-mobile h-20 w-full bg-surface-container-lowest shadow-[0_4px_20px_rgba(0,0,0,0.05)]">
+<div class="flex items-center gap-3">
+<img alt="PYQ Nova Logo" class="h-8 w-8 rounded-full object-cover object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uj4_Ty5QStoievo0OY1dqysaKEY1faydDdMOm3eyXTZFRqeHGxCAaoDV3RcinsMvXhhLZShsvAgpkDsWKZMtjZDomxMuZEyVpSOjCpLYE9YYaJOOZJUd3OZmdvu6O0YxLOdSeehlVIRBMyXH3efxfJv0VNSjq3g_YZF_UYJZgQfYKMzrm-h9Z5XVnMsAMOKYZ7wKxsp6lvLr4ridRwz3DOAkyYPSr0hzYWZfemc5tFC6GerEUXqOdmU759NLAEJBNS1jQcOISkq">
+<span class="text-headline-md font-headline-md font-bold text-primary">PYQ Nova</span>
+</div>
+<div class="flex items-center gap-4 text-on-surface-variant">
+<button class="material-symbols-outlined transition-transform active:scale-95 duration-200">notifications</button>
+<button class="material-symbols-outlined transition-transform active:scale-95 duration-200">settings</button>
+</div>
+</header>
+<!-- Side Navigation (Desktop) -->
+<aside class="hidden md:flex h-screen w-72 fixed left-0 top-0 bg-surface-container-lowest shadow-[4px_0_20px_rgba(0,0,0,0.05)] flex-col p-6 gap-stack-gap-md z-40 transition-all duration-300 ease-out">
+<div class="flex items-center gap-4 mb-8">
+<img alt="PYQ Nova Logo" class="h-10 w-10 rounded-full object-cover shadow-sm object-contain" src="https://lh3.googleusercontent.com/aida/ADBb0uj4_Ty5QStoievo0OY1dqysaKEY1faydDdMOm3eyXTZFRqeHGxCAaoDV3RcinsMvXhhLZShsvAgpkDsWKZMtjZDomxMuZEyVpSOjCpLYE9YYaJOOZJUd3OZmdvu6O0YxLOdSeehlVIRBMyXH3efxfJv0VNSjq3g_YZF_UYJZgQfYKMzrm-h9Z5XVnMsAMOKYZ7wKxsp6lvLr4ridRwz3DOAkyYPSr0hzYWZfemc5tFC6GerEUXqOdmU759NLAEJBNS1jQcOISkq">
+<div>
+<h1 class="text-headline-md font-headline-md font-extrabold text-primary">PYQ Nova</h1>
+<p class="font-label-sm text-label-sm text-outline tracking-wider uppercase mt-1">Elite Learning</p>
+</div>
+</div>
+<nav class="flex-1 flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">home</span>
+                Home
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">edit_note</span>
+                Practice
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">assignment</span>
+                Mock Tests
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low hover:scale-[1.02] transition-all duration-300" href="#">
+<span class="material-symbols-outlined">insights</span>
+                Performance
+            </a>
+<a class="flex items-center gap-4 px-4 py-3 rounded-xl font-label-md text-label-md bg-primary-container text-on-primary-container font-bold hover:scale-[1.02] transition-all duration-300 shadow-sm" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">person</span>
+                Profile
+            </a>
+</nav>
+<div class="mt-auto flex flex-col gap-4">
+<div class="flex flex-col gap-2">
+<a class="flex items-center gap-4 px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">settings</span>
+                    Settings
+                </a>
+<a class="flex items-center gap-4 px-4 py-2 rounded-lg font-label-md text-label-md text-on-surface-variant hover:bg-surface-container-low transition-colors" href="#">
+<span class="material-symbols-outlined">help_outline</span>
+                    Help
+                </a>
+</div>
+<button class="w-full bg-primary-container text-on-primary-container font-label-md text-label-md py-3 rounded-xl font-bold hover:bg-surface-tint transition-colors shadow-sm">
+                Upgrade to Pro
+            </button>
+</div>
+</aside>
+<!-- Main Content Canvas -->
+<main class="flex-1 md:ml-72 p-container-padding-mobile md:p-container-padding-desktop max-w-[1100px] mx-auto w-full">
+<!-- Header Section -->
+<header class="mb-stack-gap-lg">
+<h1 class="font-headline-lg-mobile text-headline-lg-mobile md:font-headline-lg md:text-headline-lg text-on-background mb-2">Profile</h1>
+<p class="font-body-md text-body-md text-on-surface-variant">Manage your account details and learning preferences.</p>
+</header>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-stack-gap-lg">
+<!-- Left Column: Profile Card & Stats -->
+<div class="lg:col-span-1 flex flex-col gap-stack-gap-lg">
+<!-- Profile Identity Card -->
+<div class="bg-surface-container rounded-[24px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] flex flex-col items-center text-center hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+<div class="relative mb-6">
+<div class="h-32 w-32 rounded-full overflow-hidden border-4 border-surface-container shadow-sm">
+<img alt="Aditya Avatar" class="h-full w-full object-cover" data-alt="A professional, well-lit headshot of a young male student in a modern, clean indoor setting. He has a subtle smile and a confident expression. The lighting is soft and bright, emphasizing a premium, focused educational aesthetic in a light mode context." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCM9jo7fFqGAC7DcxWJ1ggcknFHbzBg7F_AfSrS0wsJzmcNZnvySW4a1ObzRNRmsnrhcoXi2KH7MHJf6qaFLRTqZ0r7E9xHU3skbq0lQNf3Q0woFdKFAHiRbCNBF3N15K--KPp3ziqENNVzCpv_fNVy1h9HYckdTlagihZxaM-iYrKW-Eow-T9LJQbOSBD4D8R77a4rOgKL4CsyCx_x9XMcF2RhHdeLNvBJquoNP1qzTKPhRpmnIc2-ixHGWaSfqh99cDABxKYEmL4">
+</div>
+<button class="absolute bottom-0 right-0 h-10 w-10 bg-primary-container text-on-primary-container rounded-full flex items-center justify-center shadow-md hover:scale-105 transition-transform">
+<span class="material-symbols-outlined text-[20px]">edit</span>
+</button>
+</div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-1">Aditya Sharma</h2>
+<p class="font-body-md text-body-md text-outline mb-4">aditya.sharma@example.com</p>
+<span class="px-4 py-1.5 bg-tertiary-fixed text-on-tertiary-fixed rounded-full font-label-sm text-label-sm flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[16px]" style="font-variation-settings: 'FILL' 1;">workspace_premium</span>
+                        Pro Member
+                    </span>
+</div>
+<!-- Stats at a Glance Bento Card -->
+<div class="bg-surface-container rounded-[24px] p-6 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+<h3 class="font-label-md text-label-md text-outline tracking-wider uppercase mb-6">Stats at a Glance</h3>
+<div class="flex flex-col gap-6">
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl bg-primary-fixed flex items-center justify-center text-on-primary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">check_circle</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant">Questions Solved</p>
+<p class="font-headline-md text-headline-md text-on-background">1,248</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl bg-secondary-fixed flex items-center justify-center text-on-secondary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">troubleshoot</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant">Overall Accuracy</p>
+<p class="font-headline-md text-headline-md text-on-background">76%</p>
+</div>
+</div>
+<div class="flex items-center gap-4">
+<div class="h-12 w-12 rounded-xl bg-tertiary-fixed flex items-center justify-center text-on-tertiary-fixed-variant">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+</div>
+<div>
+<p class="font-body-md text-body-md text-on-surface-variant">Current Streak</p>
+<p class="font-headline-md text-headline-md text-on-background">15 Days</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Column: Settings & Content -->
+<div class="lg:col-span-2 flex flex-col gap-stack-gap-lg">
+<!-- Account Settings Group -->
+<div class="bg-surface-container rounded-[24px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300">
+<h2 class="font-headline-md text-headline-md text-on-background mb-8">Account Settings</h2>
+<div class="flex flex-col gap-8">
+<!-- Personal Info -->
+<div class="group">
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md text-outline tracking-wider uppercase">Personal Information</h3>
+<button class="text-primary font-label-md text-label-md hover:underline">Edit</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">First Name</label>
+<div class="px-4 py-3 bg-surface-container-high rounded-xl font-body-md text-body-md text-on-background">Aditya</div>
+</div>
+<div>
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Last Name</label>
+<div class="px-4 py-3 bg-surface-container-high rounded-xl font-body-md text-body-md text-on-background">Sharma</div>
+</div>
+<div class="md:col-span-2">
+<label class="block font-label-sm text-label-sm text-on-surface-variant mb-1">Email Address</label>
+<div class="px-4 py-3 bg-surface-container-high rounded-xl font-body-md text-body-md text-on-background">aditya.sharma@example.com</div>
+</div>
+</div>
+</div>
+<!-- Divider (Tonal) -->
+<div class="h-px bg-surface-variant w-full"></div>
+<!-- Password -->
+<div>
+<div class="flex justify-between items-center mb-4">
+<h3 class="font-label-md text-label-md text-outline tracking-wider uppercase">Security</h3>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl">
+<div>
+<p class="font-label-md text-label-md text-on-background">Password</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Last changed 3 months ago</p>
+</div>
+<button class="px-6 py-2 rounded-xl bg-inverse-primary text-on-surface font-label-md text-label-md hover:bg-primary-fixed transition-colors">Update</button>
+</div>
+</div>
+<!-- Divider (Tonal) -->
+<div class="h-px bg-surface-variant w-full"></div>
+<!-- Notifications -->
+<div>
+<h3 class="font-label-md text-label-md text-outline tracking-wider uppercase mb-4">Notifications</h3>
+<div class="flex flex-col gap-4">
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl">
+<div>
+<p class="font-label-md text-label-md text-on-background">Weekly Progress Report</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Receive a summary of your performance</p>
+</div>
+<!-- Custom Toggle -->
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</div>
+<div class="flex items-center justify-between p-4 bg-surface-container-high rounded-xl">
+<div>
+<p class="font-label-md text-label-md text-on-background">New Mock Test Alerts</p>
+<p class="font-body-md text-body-md text-on-surface-variant text-sm">Get notified when new papers are added</p>
+</div>
+<div class="w-12 h-6 bg-primary-container rounded-full relative cursor-pointer shadow-inner">
+<div class="absolute right-1 top-1 w-4 h-4 bg-on-primary rounded-full shadow-sm"></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Subscription Card -->
+<div class="bg-surface-container rounded-[24px] p-8 shadow-[0_4px_20px_rgba(0,0,0,0.05)] hover:shadow-[0_8px_30px_rgba(0,0,0,0.08)] transition-shadow duration-300 relative overflow-hidden">
+<!-- Subtle background decoration -->
+<div class="absolute -right-12 -top-12 w-48 h-48 bg-tertiary-fixed opacity-50 rounded-full blur-3xl pointer-events-none"></div>
+<h2 class="font-headline-md text-headline-md text-on-background mb-6 relative z-10">Subscription</h2>
+<div class="flex flex-col md:flex-row items-start md:items-center justify-between bg-surface-container-high p-6 rounded-2xl relative z-10 gap-6">
+<div class="flex items-center gap-4">
+<div class="h-16 w-16 bg-surface-container rounded-xl shadow-sm flex items-center justify-center">
+<span class="material-symbols-outlined text-[32px] text-tertiary" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md text-on-background flex items-center gap-2">
+                                    Pro Plan
+                                    <span class="px-2 py-0.5 bg-secondary-fixed text-on-secondary-fixed text-xs rounded-md uppercase tracking-wide font-bold">Active</span>
+</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">Renews on October 15, 2024</p>
+</div>
+</div>
+<button class="px-6 py-3 rounded-xl bg-inverse-on-surface text-on-surface font-label-md text-label-md border border-outline-variant hover:bg-surface-variant transition-colors whitespace-nowrap">
+                            Manage Plan
+                        </button>
+</div>
+</div>
+</div>
+</div>
+</main>
+
+
+</body></html>

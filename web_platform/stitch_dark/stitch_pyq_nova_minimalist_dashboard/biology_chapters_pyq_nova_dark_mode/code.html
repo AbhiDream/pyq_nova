@@ -1,0 +1,317 @@
+<!DOCTYPE html><html class="dark" lang="en" style=""><head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>PYQ Nova - Biology Chapters</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "tertiary-fixed": "#e1e0ff",
+                "secondary": "#40e56c",
+                "secondary-fixed": "#69ff87",
+                "secondary-fixed-dim": "#3ce36a",
+                "outline": "#8b909f",
+                "tertiary-fixed-dim": "#c0c1ff",
+                "on-tertiary-fixed": "#07006c",
+                "background": "#0b1326",
+                "surface-container-highest": "#2d3449",
+                "on-primary-container": "#ffffff",
+                "on-error-container": "#ffdad6",
+                "surface-bright": "#31394d",
+                "inverse-primary": "#005bc0",
+                "inverse-on-surface": "#283044",
+                "on-error": "#690005",
+                "surface-container-low": "#131b2e",
+                "on-tertiary": "#1000a9",
+                "on-surface-variant": "#c1c6d6",
+                "primary-fixed-dim": "#adc7ff",
+                "on-secondary-fixed": "#002108",
+                "on-background": "#dae2fd",
+                "surface-container-lowest": "#060e20",
+                "outline-variant": "#414754",
+                "on-secondary-fixed-variant": "#00531e",
+                "on-secondary-container": "#004d1b",
+                "surface-container": "#171f33",
+                "secondary-container": "#02c953",
+                "tertiary": "#c0c1ff",
+                "on-tertiary-container": "#ffffff",
+                "inverse-surface": "#dae2fd",
+                "on-primary-fixed": "#001a41",
+                "on-primary-fixed-variant": "#004493",
+                "surface-container-high": "#222a3d",
+                "primary-fixed": "#d8e2ff",
+                "primary": "#adc7ff",
+                "on-tertiary-fixed-variant": "#2f2ebe",
+                "primary-container": "#1a73e8",
+                "on-secondary": "#003912",
+                "surface-variant": "#2d3449",
+                "surface-dim": "#0b1326",
+                "surface-tint": "#adc7ff",
+                "tertiary-container": "#6265f0",
+                "on-surface": "#dae2fd",
+                "error": "#ffb4ab",
+                "error-container": "#93000a",
+                "surface": "#0b1326",
+                "on-primary": "#002e68"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.25rem",
+                "lg": "0.5rem",
+                "xl": "0.75rem",
+                "full": "9999px"
+        },
+        "spacing": {
+                "margin-desktop": "40px",
+                "stack-md": "16px",
+                "margin-mobile": "20px",
+                "gutter": "24px",
+                "container-max": "1280px",
+                "stack-lg": "32px",
+                "stack-sm": "8px",
+                "base": "8px",
+                "section-margin": "64px",
+                "container-padding-mobile": "20px",
+                "stack-gap-lg": "32px",
+                "container-padding-desktop": "40px",
+                "stack-gap-md": "16px"
+        },
+        "fontFamily": {
+                "body-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-sm": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "display-lg": [
+                        "Plus Jakarta Sans"
+                ],
+                "label-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-md": [
+                        "Plus Jakarta Sans"
+                ],
+                "headline-lg-mobile": [
+                        "Plus Jakarta Sans"
+                ],
+                "body-lg": [
+                        "Plus Jakarta Sans"
+                ]
+        },
+        "fontSize": {
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "fontWeight": "400"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.02em",
+                                "fontWeight": "500"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-md": [
+                        "14px",
+                        {
+                                "lineHeight": "20px",
+                                "letterSpacing": "0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-md": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "fontWeight": "700"
+                        }
+                ],
+                "body-lg": [
+                        "18px",
+                        {
+                                "lineHeight": "28px",
+                                "fontWeight": "400"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        body { font-family: 'Plus Jakarta Sans', sans-serif; }
+    </style>
+<style data-stitch-cursor=""></style><style data-stitch-scroll-lock=""></style></head>
+<body class="bg-surface text-on-surface flex min-h-screen">
+<!-- SideNavBar -->
+<aside class="bg-background shadow-md flex flex-col py-8 px-4 docked left-0 h-screen w-20 md:w-64 fixed top-0 z-50 border-r border-outline-variant">
+<div class="flex items-center mb-10 pl-2"><img src="{{DATA:IMAGE:IMAGE_5}}" alt="PYQ Nova Logo" class="h-12 w-auto object-contain shrink-0"></div>
+<nav class="flex-1 space-y-2"><a class="flex items-center p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-4">grid_view</span>
+<span class="hidden md:block font-label-md text-label-md">Home</span>
+</a>
+<a class="flex items-center p-3 rounded-lg text-primary-fixed font-bold border-r-4 border-primary-fixed bg-primary-container/20 hover:bg-surface-container-high transition-colors scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-4">menu_book</span>
+<span class="hidden md:block font-label-md text-label-md">Practice</span>
+</a>
+<a class="flex items-center p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-4">assignment</span>
+<span class="hidden md:block font-label-md text-label-md">Mock Tests</span>
+</a>
+<a class="flex items-center p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-4">monitoring</span>
+<span class="hidden md:block font-label-md text-label-md">Performance</span>
+</a>
+<a class="flex items-center p-3 rounded-lg text-on-surface-variant hover:bg-surface-container-high transition-colors scale-105 transition-transform duration-200" href="#">
+<span class="material-symbols-outlined mr-4">person</span>
+<span class="hidden md:block font-label-md text-label-md">Profile</span>
+</a></nav>
+<div class="mt-auto hidden md:block">
+<div class="bg-surface-container-high rounded-2xl p-4 text-center border border-outline-variant">
+<img alt="Aditya's Profile Avatar" class="w-12 h-12 rounded-full mx-auto mb-2 border-2 border-primary-fixed" src="https://lh3.googleusercontent.com/aida-public/AB6AXuANT6PdbQmomEV53UnDZgZGHu2Hpg0fabD0LAkAd8nzUu0lPG1epkwc4HZGvFOiZ7CL2IAZ8pHsnum4L31fG4r9GG8HUEfRhQ-XU9nSC8wCJeQxXrdPHjHHr-zOHGIKKY8SPcas633DiLbpj139A45UQDzwno1IWyAaQeG1UjmaYKX-z8YUsw358vmEoDGgXPSNmRNshh7PdLoCnxcr8BPu51thTFU-rar3P6JkgOZicFTPHMHB1NZzAEYLNw6DXPO37xgEuvLNsVU">
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-3">Premium EdTech</p>
+<button class="bg-primary-container text-on-primary-container w-full py-2 rounded-lg font-label-md text-label-md hover:brightness-110 transition-all">Upgrade to Pro</button>
+</div>
+</div>
+</aside>
+<!-- Main Content Area -->
+<main class="flex-1 ml-20 md:ml-64 p-container-padding-mobile md:p-container-padding-desktop">
+<!-- Header Section -->
+<header class="mb-stack-gap-lg max-w-[1100px] mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
+<div>
+<h1 class="font-display-lg text-display-lg text-on-surface mb-2">Biology</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant">Select a chapter to start practicing.</p>
+</div>
+<div class="mt-4 md:mt-0 relative w-full md:w-80">
+<span class="material-symbols-outlined absolute left-4 top-1/2 transform -translate-y-1/2 text-outline">search</span>
+<input class="w-full bg-surface-container-lowest border border-outline-variant rounded-xl py-3 pl-12 pr-4 font-body-md text-body-md text-on-surface placeholder:text-outline focus:ring-2 focus:ring-primary focus:outline-none shadow-[0_4px_20px_rgba(0,0,0,0.05)]" placeholder="Search chapters..." type="text">
+</div>
+</div>
+</header>
+<!-- Chapter Grid -->
+<section class="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-stack-gap-lg">
+<!-- Card 1 -->
+<article class="bg-surface-container-lowest rounded-[24px] p-6 shadow-sm border border-surface-variant hover:shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full border-t-4 border-t-error">
+<div class="mb-4">
+<span class="inline-block bg-error-container text-on-error-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-3">High Weightage</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Cell: The Unit of Life</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Understand the fundamental structural and functional unit of all living organisms.</p>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">45/120 Questions</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 37%"></div>
+</div>
+</div>
+</article>
+<!-- Card 2 -->
+<article class="bg-surface-container-lowest rounded-[24px] p-6 shadow-sm border border-surface-variant hover:shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full border-t-4 border-t-error">
+<div class="mb-4">
+<span class="inline-block bg-error-container text-on-error-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-3">High Weightage</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Genetics and Evolution</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Principles of inheritance, variation, and the molecular basis of heredity.</p>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">12/150 Questions</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-primary h-2 rounded-full" style="width: 8%"></div>
+</div>
+</div>
+</article>
+<!-- Card 3 -->
+<article class="bg-surface-container-lowest rounded-[24px] p-6 shadow-sm border border-surface-variant hover:shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full border-t-4 border-t-tertiary">
+<div class="mb-4">
+<span class="inline-block bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-3">Medium Weightage</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Human Physiology</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Detailed study of the mechanical, physical, and biochemical functions of humans.</p>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">89/90 Questions</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-secondary h-2 rounded-full" style="width: 98%"></div>
+</div>
+</div>
+</article>
+<!-- Card 4 -->
+<article class="bg-surface-container-lowest rounded-[24px] p-6 shadow-sm border border-surface-variant hover:shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full border-t-4 border-t-tertiary">
+<div class="mb-4">
+<span class="inline-block bg-tertiary-container text-on-tertiary-container font-label-sm text-label-sm px-3 py-1 rounded-full mb-3">Medium Weightage</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Plant Physiology</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Explore the vital processes and functions occurring in plants.</p>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">0/75 Questions</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-surface-variant h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</article>
+<!-- Card 5 -->
+<article class="bg-surface-container-lowest rounded-[24px] p-6 shadow-sm border border-surface-variant hover:shadow-md hover:scale-[1.02] transition-all duration-300 flex flex-col h-full border-t-4 border-t-surface-variant">
+<div class="mb-4">
+<span class="inline-block bg-surface-variant text-on-surface-variant font-label-sm text-label-sm px-3 py-1 rounded-full mb-3">Low Weightage</span>
+<h2 class="font-headline-md text-headline-md text-on-surface mb-2">Biomolecules</h2>
+<p class="font-body-md text-body-md text-on-surface-variant line-clamp-2">Study of naturally occurring molecules present in living organisms.</p>
+</div>
+<div class="mt-auto pt-4">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label-md text-label-md text-on-surface-variant">Progress</span>
+<span class="font-label-md text-label-md text-primary font-bold">0/40 Questions</span>
+</div>
+<div class="w-full bg-surface-container-high rounded-full h-2">
+<div class="bg-surface-variant h-2 rounded-full" style="width: 0%"></div>
+</div>
+</div>
+</article>
+</section>
+</main>
+
+
+</body></html>

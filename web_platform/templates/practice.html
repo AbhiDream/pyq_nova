@@ -1,0 +1,223 @@
+{% extends "base.html" %}
+{% block title %}{{ chapter_name }}{% endblock %}
+{% block page_id %}practice{% endblock %}
+
+{% block content %}
+<div class="practice-shell" data-chapter="{{ chapter }}">
+
+  <div class="qnav-root">
+    {# ── Pill row ── #}
+    <div class="qnav-bar">
+      <!-- Pill window scroll — sirf view shift -->
+      <button class="qnav-btn" id="btn-scroll-left" onclick="Practice.scrollPills(-5)">
+        <i data-lucide="chevron-left"></i>
+      </button>
+
+      <div class="qnav-pills" id="pill-container">
+        <!-- JS se dynamically fill hoga -->
+      </div>
+
+      <button class="qnav-btn" id="btn-scroll-right" onclick="Practice.scrollPills(5)">
+        <i data-lucide="chevron-right"></i>
+      </button>
+
+      <button class="view-all-btn" id="btn-view-all" onclick="Practice.viewAll()">View all Qs</button>
+    </div>
+
+    {# ── Meta row ── #}
+    <div class="qnav-meta">
+      <!-- Meta row mein alag Prev question button -->
+      <button class="qmeta-back" onclick="window.location.href='/'" aria-label="Back to Chapter List">
+        <i data-lucide="arrow-left"></i>
+      </button>
+
+      <div style="flex:1">
+        <div class="qmeta-title" id="meta-chapter">
+          PYQs &rsaquo; <span id="meta-chapter-name">{{ chapter_name }}</span>
+        </div>
+        <div class="qmeta-sub">
+          Q <span id="meta-qnum">1</span>
+          &nbsp;&middot;&nbsp;
+          <span id="meta-year">NEET</span>
+        </div>
+      </div>
+
+      <div class="qmeta-timer">
+        <i data-lucide="clock" style="width:16px;height:16px"></i>
+        <span id="timer-text">00:00</span>
+      </div>
+
+
+      <button class="qmeta-icon-btn" id="btn-bookmark" 
+              onclick="NotebookPanel.open(Practice.questions[Practice.currentIndex]?.id)"
+              aria-label="Bookmark">
+        <i data-lucide="bookmark" id="bookmark-icon"></i>
+      </button>
+      <button class="qmeta-icon-btn" id="btn-settings" aria-label="Settings">
+        <i data-lucide="settings"></i>
+      </button>
+    </div>
+
+    {# ── Legend ── #}
+    <div class="legend">
+      <div class="legend-item"><div class="legend-dot" style="background:#1D9E75"></div>Correct</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#E24B4A"></div>Wrong</div>
+      <div class="legend-item"><div class="legend-dot" style="background:#EF9F27"></div>Skipped</div>
+      <div class="legend-item"><div class="legend-dot legend-dot--unseen"></div>Unseen</div>
+      <div class="legend-item"><div class="legend-dot legend-dot--current"></div>Current</div>
+    </div>
+  </div>
+
+  <!-- Question Area -->
+  <div id="question-area">
+    <!-- Loading skeleton -->
+    <div class="question-card card">
+      <div class="skeleton" style="height:20px;width:40%;margin-bottom:16px"></div>
+      <div class="skeleton" style="height:80px;margin-bottom:24px"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
+        <div class="skeleton" style="height:52px;border-radius:12px"></div>
+        <div class="skeleton" style="height:52px;border-radius:12px"></div>
+        <div class="skeleton" style="height:52px;border-radius:12px"></div>
+        <div class="skeleton" style="height:52px;border-radius:12px"></div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Fixed Bottom Action Bar -->
+  <div class="bottom-action-bar">
+    <button class="btn btn-outline" onclick="Practice.prev()" id="btn-prev">Previous</button>
+    <button class="btn btn-primary" onclick="Practice.checkAnswer()" id="btn-check">Check Answer</button>
+    <button class="btn btn-outline" onclick="Practice.next()" id="btn-next">Next</button>
+  </div>
+
+  <!-- ── View All Qs Drawer ── -->
+  <div id="viewall-overlay" onclick="Practice.closeViewAll()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:900;backdrop-filter:blur(2px)"></div>
+
+  <div id="viewall-drawer" style="
+    display:none;position:fixed;top:0;right:0;height:100vh;width:340px;max-width:95vw;
+    background:var(--surface);border-left:1px solid var(--border);z-index:901;
+    flex-direction:column;overflow:hidden;
+    box-shadow:-8px 0 32px rgba(0,0,0,0.4);
+    transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  ">
+    <!-- Header -->
+    <div style="padding:18px 20px 12px;border-bottom:1px solid var(--border);flex-shrink:0">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:4px">
+        <span style="font-weight:700;font-size:17px;color:var(--text)">PYQs</span>
+        <div style="display:flex;align-items:center;gap:10px">
+          <button onclick="Practice.resetProgress()" style="background:none;border:none;color:#F43F5E;font-size:13px;font-weight:600;cursor:pointer;padding:0">Reset</button>
+          <button onclick="Practice.closeViewAll()" style="background:rgba(255,255,255,0.08);border:none;color:var(--text);width:28px;height:28px;border-radius:50%;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:16px">✕</button>
+        </div>
+      </div>
+      <div style="font-size:13px;color:var(--muted)" id="vaq-chapter-name"></div>
+    </div>
+
+    <!-- Filter tabs -->
+    <div style="padding:12px 16px 0;border-bottom:1px solid var(--border);flex-shrink:0">
+      <div style="display:flex;flex-wrap:wrap;gap:8px;padding-bottom:12px" id="vaq-filters">
+        <!-- populated by JS -->
+      </div>
+    </div>
+
+    <!-- Year-wise question list -->
+    <div id="vaq-body" style="flex:1;overflow-y:auto;padding:16px 18px;display:flex;flex-direction:column;gap:20px">
+      <!-- populated by JS -->
+    </div>
+  </div>
+
+  <!-- Notebook Panel Overlay -->
+  <div id="nb-overlay" onclick="NotebookPanel.close()" 
+       style="display:none;position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:800"></div>
+
+  <!-- Notebook Panel (right side slide-in) -->
+  <div id="nb-panel" style="
+    display:none;position:fixed;top:0;right:0;height:100vh;width:400px;
+    background:#1C2333;border-left:1px solid rgba(255,255,255,0.1);
+    z-index:801;flex-direction:column;overflow:hidden;
+    transform:translateX(100%);transition:transform 0.28s cubic-bezier(0.4,0,0.2,1);
+  ">
+    <!-- Header -->
+    <div style="padding:20px;border-bottom:1px solid rgba(255,255,255,0.08);display:flex;justify-content:space-between;align-items:center">
+      <div>
+        <div style="font-size:17px;font-weight:700;color:#E8EDF5">Add to Notebook</div>
+        <div style="font-size:12px;color:#7A869A;margin-top:2px" id="nb-q-info">Loading...</div>
+      </div>
+      <button onclick="NotebookPanel.close()" style="background:rgba(255,255,255,0.08);border:none;color:#E8EDF5;width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:18px">✕</button>
+    </div>
+    
+    <!-- Body -->
+    <div style="flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:20px">
+      <!-- Note -->
+      <div>
+        <div style="display:flex;justify-content:space-between;margin-bottom:8px">
+          <label style="font-size:14px;font-weight:600;color:#E8EDF5">Add your note <span style="color:#7A869A;font-weight:400">(Optional)</span></label>
+          <button onclick="document.getElementById('nb-note').value=''" style="background:none;border:none;color:#FF6B35;font-size:12px;cursor:pointer">Clear Note</button>
+        </div>
+        <textarea id="nb-note" placeholder="Add note to your question..." style="
+          width:100%;height:90px;background:rgba(255,255,255,0.05);
+          border:1px solid rgba(255,255,255,0.1);border-radius:10px;
+          color:#E8EDF5;padding:12px;font-size:13px;resize:none;
+          font-family:'Plus Jakarta Sans',sans-serif;outline:none;
+        "></textarea>
+        <div style="font-size:11px;color:#7A869A;margin-top:4px">Your note can help you in revising the question</div>
+      </div>
+      
+      <!-- Notebooks -->
+      <div>
+        <div style="font-size:14px;font-weight:600;color:#E8EDF5;margin-bottom:12px">Select Notebook(S)</div>
+        <div id="nb-list" style="display:flex;flex-direction:column;gap:8px">
+          <!-- JS se fill hoga -->
+        </div>
+        <button onclick="NotebookPanel.showCreate()" style="
+          background:none;border:none;color:#1DD4C0;font-size:13px;
+          cursor:pointer;margin-top:10px;display:flex;align-items:center;gap:6px;padding:0
+        ">+ Create New Notebook</button>
+        <!-- Create new input (hidden by default) -->
+        <div id="nb-create-wrap" style="display:none;margin-top:10px;display:flex;gap:8px">
+          <input id="nb-new-name" placeholder="Notebook name..." style="
+            flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.15);
+            border-radius:8px;padding:8px 12px;color:#E8EDF5;font-size:13px;outline:none;
+            font-family:'Plus Jakarta Sans',sans-serif
+          ">
+          <button onclick="NotebookPanel.createNotebook()" style="
+            background:#1DD4C0;color:#111520;border:none;border-radius:8px;
+            padding:8px 14px;font-weight:700;cursor:pointer;font-size:13px
+          ">Add</button>
+        </div>
+      </div>
+      
+      <!-- Tags -->
+      <div>
+        <div style="font-size:14px;font-weight:600;color:#E8EDF5;margin-bottom:12px">Add Tags <span style="color:#7A869A;font-weight:400">(Optional)</span></div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap" id="nb-tags-row">
+          <!-- Tags JS se render honge -->
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <div style="padding:16px 20px;border-top:1px solid rgba(255,255,255,0.08);display:flex;gap:10px">
+      <button onclick="NotebookPanel.close()" style="
+        flex:1;padding:12px;border:1px solid rgba(255,255,255,0.15);
+        background:transparent;color:#E8EDF5;border-radius:10px;
+        font-weight:600;cursor:pointer;font-size:14px
+      ">Cancel</button>
+      <button onclick="NotebookPanel.save()" style="
+        flex:1;padding:12px;background:#1DD4C0;color:#111520;
+        border:none;border-radius:10px;font-weight:700;cursor:pointer;font-size:14px
+      ">Add to Notebook</button>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+
+{% block scripts %}
+<script>
+// Boot the Practice session — chapter slug comes from Jinja
+document.addEventListener('DOMContentLoaded', () => {
+  Practice.init("{{ chapter }}");
+});
+</script>
+{% endblock %}

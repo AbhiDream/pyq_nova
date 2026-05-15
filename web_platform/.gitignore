@@ -1,0 +1,46 @@
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Data
+*.sqlite3
+*.db
+*.log
+*.zip
+
+# Visual Studio Code
+.vscode/
+
+# Ignore local scrape data if it's very large, but we might need it?
+# Image Dirs (Heavy)
+# Removed from gitignore so they are deployed to Render
+# If repo exceeds 1GB, consider moving to AWS S3.

@@ -1,0 +1,629 @@
+{#
+  PYQNova ▸ templates/practice.html
+  ──────────────────────────────────────────────────────────────────────────────
+  Architecture (matches main.py):
+    • Jinja2 renders the shell; chapter slug comes from the URL route.
+    • JS fetches  GET /api/questions/{chapter}/{index}  on load + navigation.
+    • The API now returns sanitized question_text and typed options.
+
+  API response shape (from the fixed questions.py):
+    {
+      total:    <int>,
+      index:    <int>,
+      question: {
+        id, subject, chapter, year, difficulty,
+        question_text,    ← already sanitized, no $$\text{} artefacts
+        question_image,   ← nullable filename
+        options: {
+          A: "text or filename",
+          B: "text or filename",
+          __type__: "text" | "image"
+        },
+        correct_answer, explanation, tags
+      }
+    }
+
+  Key JS fixes vs old template:
+    OLD: rendered options.A / options.B directly as text → "N/A" when undefined
+    NEW: reads __type__, branches to <img> or MathJax text render per option
+
+  Image fix:
+    mix-blend-mode: lighten  → removes white background of scraped diagrams
+    max-height: 120px        → keeps 2×2 Bento grid balanced
+  ──────────────────────────────────────────────────────────────────────────────
+#}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>{{ chapter_name }} · PYQNova</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600&display=swap" rel="stylesheet"/>
+
+  <!-- MathJax 3 — configured BEFORE the script loads -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath:  [['$','$']],
+        displayMath: [['$$','$$']],
+        processEscapes: true,
+      },
+      options: {
+        // Never typeset inside image-option containers
+        ignoreHtmlClass: 'no-mathjax',
+        skipHtmlTags: ['script','noscript','style','textarea','pre'],
+      },
+    };
+  </script>
+  <script defer src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+
+  <style>
+    /* ── Design tokens: Deep Ocean Premium Dark ─────────────────────────── */
+    :root {
+      --bg-base:    #080e1a;
+      --bg-card:    #0d1626;
+      --bg-card-hi: #111e33;
+      --bg-inset:   #091122;
+      --bg-opt:     #0f1c30;
+      --bg-opt-hi:  #152540;
+
+      --border:     rgba(99,160,255,.11);
+      --border-hi:  rgba(99,160,255,.28);
+      --border-sel: rgba(82,200,255,.60);
+      --border-ok:  rgba(52,211,153,.70);
+      --border-bad: rgba(248,113,113,.70);
+
+      --accent:  #52c8ff;
+      --teal:    #34d399;
+      --amber:   #fbbf24;
+      --red:     #f87171;
+      --violet:  #a78bfa;
+      --text:    #e8f0fe;
+      --muted:   #7a9fd4;
+      --dim:     #3d5a80;
+
+      --r-sm: 8px;
+      --r-md: 14px;
+      --r-lg: 20px;
+      --r-xl: 26px;
+      --ease: cubic-bezier(.22,1,.36,1);
+      --font-display: 'DM Serif Display', Georgia, serif;
+      --font-body:    'DM Sans', system-ui, sans-serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--bg-base);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.65;
+      background-image:
+        radial-gradient(ellipse 80% 50% at 50% -10%, rgba(82,200,255,.07) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 90% 80%, rgba(167,139,250,.05) 0%, transparent 60%);
+    }
+
+    .page-wrap { max-width: 900px; margin: 0 auto; padding: 32px 20px 80px; }
+
+    /* ── Topbar ─────────────────────────────────────────────────────────── */
+    .topbar {
+      display: flex; align-items: center; justify-content: space-between;
+      margin-bottom: 24px; padding-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .logo {
+      font-family: var(--font-display);
+      font-size: 1.3rem; letter-spacing: -.02em;
+      background: linear-gradient(135deg, var(--accent), var(--violet));
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+      background-clip: text; text-decoration: none;
+    }
+    .chapter-title {
+      font-size: .8rem; color: var(--muted); font-weight: 500;
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+      max-width: 320px;
+    }
+    .q-counter { font-size: .78rem; color: var(--muted); font-weight: 500; white-space: nowrap; }
+
+    /* ── Progress bar ───────────────────────────────────────────────────── */
+    .pbar { height: 3px; background: var(--bg-inset); border-radius: 99px; margin-bottom: 24px; overflow: hidden; }
+    .pbar-fill {
+      height: 100%; width: 0%;
+      background: linear-gradient(90deg, var(--accent), var(--violet));
+      border-radius: 99px; transition: width .5s var(--ease);
+    }
+
+    /* ── Skeleton loader ────────────────────────────────────────────────── */
+    .skeleton { background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--r-xl); padding: 28px 32px; margin-bottom: 16px; }
+    .skel-line { height: 14px; background: var(--bg-inset); border-radius: 6px; margin-bottom: 10px; animation: shimmer 1.4s infinite; }
+    .skel-line.w60 { width: 60%; }
+    .skel-line.w80 { width: 80%; }
+    .skel-line.w45 { width: 45%; }
+    @keyframes shimmer { 0%,100%{opacity:.4} 50%{opacity:.9} }
+
+    /* ── Error state ─────────────────────────────────────────────────────── */
+    .error-card {
+      background: rgba(248,113,113,.07); border: 1px solid rgba(248,113,113,.25);
+      border-radius: var(--r-lg); padding: 20px 24px; color: var(--red);
+      font-size: .9rem; display: none;
+    }
+    .error-card.show { display: block; }
+
+    /* ── Question card ──────────────────────────────────────────────────── */
+    .qcard {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r-xl); padding: 28px 32px 24px;
+      margin-bottom: 16px; position: relative; overflow: hidden;
+    }
+    .qcard::before {
+      content: ''; position: absolute; inset: 0 0 auto 0; height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(82,200,255,.22), transparent);
+    }
+
+    /* ── Meta badges ─────────────────────────────────────────────────────── */
+    .meta { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 16px; }
+    .badge {
+      font-size: .63rem; font-weight: 700; letter-spacing: .08em;
+      text-transform: uppercase; padding: 3px 10px;
+      border-radius: 99px; border: 1px solid transparent;
+    }
+    .b-physics   { background: rgba(82,200,255,.12); color: var(--accent);  border-color: rgba(82,200,255,.22); }
+    .b-chemistry { background: rgba(167,139,250,.12); color: var(--violet); border-color: rgba(167,139,250,.22); }
+    .b-biology   { background: rgba(52,211,153,.12);  color: var(--teal);   border-color: rgba(52,211,153,.22); }
+    .b-year      { background: rgba(251,191,36,.10);  color: var(--amber);  border-color: rgba(251,191,36,.20); }
+    .b-easy      { background: rgba(52,211,153,.10);  color: var(--teal); }
+    .b-medium    { background: rgba(251,191,36,.10);  color: var(--amber); }
+    .b-hard      { background: rgba(248,113,113,.10); color: var(--red); }
+
+    .q-chapter { font-size: .72rem; color: var(--dim); font-weight: 500; letter-spacing: .03em; margin-bottom: 8px; }
+    .qtext { font-size: 1.02rem; line-height: 1.75; color: var(--text); margin-bottom: 20px; }
+
+    /* ── Question diagram (main image) ─────────────────────────────────── */
+    .qdiag-wrap { text-align: center; margin-bottom: 4px; }
+    .qdiag {
+      display: inline-block; max-width: min(100%, 520px); max-height: 260px;
+      object-fit: contain; border-radius: var(--r-md);
+      /* Removes white background of scraped diagrams on dark surface */
+      mix-blend-mode: lighten;
+      filter: brightness(.92) contrast(1.06);
+    }
+
+    /* ── Options grid ───────────────────────────────────────────────────── */
+    .opts-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 11px; margin-bottom: 16px; }
+    @media (max-width: 540px) { .opts-grid { grid-template-columns: 1fr; } }
+
+    /* ── Option card ─────────────────────────────────────────────────────── */
+    .opt {
+      display: flex; align-items: flex-start; gap: 11px;
+      padding: 13px 15px;
+      background: var(--bg-opt); border: 1px solid var(--border);
+      border-radius: var(--r-lg); cursor: pointer;
+      transition: background .16s var(--ease), border-color .16s var(--ease),
+                  transform .16s var(--ease), box-shadow .16s var(--ease);
+      user-select: none; font-family: var(--font-body); text-align: left; width: 100%;
+      animation: fadeUp .35s var(--ease) both;
+    }
+    .opt:nth-child(1){animation-delay:.04s}
+    .opt:nth-child(2){animation-delay:.09s}
+    .opt:nth-child(3){animation-delay:.14s}
+    .opt:nth-child(4){animation-delay:.19s}
+    .opt:hover:not(.disabled) {
+      background: var(--bg-opt-hi); border-color: var(--border-hi);
+      transform: translateY(-1px);
+    }
+    .opt.selected { border-color: var(--border-sel); background: rgba(82,200,255,.07); }
+    .opt.correct  { border-color: var(--border-ok);  background: rgba(52,211,153,.08); }
+    .opt.wrong    { border-color: var(--border-bad); background: rgba(248,113,113,.08); }
+    .opt.disabled { cursor: default; pointer-events: none; }
+
+    .okey {
+      flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%;
+      background: var(--bg-inset); border: 1px solid var(--border);
+      display: flex; align-items: center; justify-content: center;
+      font-size: .7rem; font-weight: 700; color: var(--muted);
+      transition: background .16s, color .16s, border-color .16s;
+      margin-top: 2px;
+    }
+    .opt.selected .okey { background: var(--accent); color: #080e1a; border-color: var(--accent); }
+    .opt.correct  .okey { background: var(--teal);   color: #080e1a; border-color: var(--teal); }
+    .opt.wrong    .okey { background: var(--red);    color: #fff;    border-color: var(--red); }
+
+    .ocontent { flex: 1; min-width: 0; font-size: .92rem; color: var(--text); line-height: 1.55; }
+
+    /* ─── IMAGE OPTION FIX ─────────────────────────────────────────────────
+       max-height: 120px   → Bento grid stays balanced
+       mix-blend-mode: lighten → white bg disappears on dark surface
+       .invert-mode        → for dark diagrams (applied by autoBlend() in JS)
+    ──────────────────────────────────────────────────────────────────────── */
+    .opt-img {
+      display: block; max-height: 120px; max-width: 100%;
+      object-fit: contain; border-radius: var(--r-sm);
+      mix-blend-mode: lighten;
+      filter: brightness(.88) contrast(1.1);
+      margin: 0 auto; transition: filter .2s var(--ease);
+    }
+    .opt-img.invert-mode {
+      mix-blend-mode: normal;
+      filter: invert(1) brightness(.82) contrast(1.1) hue-rotate(180deg);
+    }
+
+    /* ── Feedback card ──────────────────────────────────────────────────── */
+    .feedback {
+      background: var(--bg-card); border: 1px solid var(--border);
+      border-radius: var(--r-lg); padding: 18px 22px;
+      margin-bottom: 16px; display: none;
+      animation: fadeUp .3s var(--ease) both;
+    }
+    .feedback.show { display: block; }
+    .fb-head { display: flex; align-items: center; gap: 9px; font-weight: 600; font-size: .9rem; margin-bottom: 10px; }
+    .fb-head.ok  { color: var(--teal); }
+    .fb-head.bad { color: var(--red); }
+    .fb-icon { width: 19px; height: 19px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: .65rem; font-weight: 900; }
+    .fb-icon.ok  { background: var(--teal); color: #080e1a; }
+    .fb-icon.bad { background: var(--red);  color: #fff; }
+    .fb-exp { font-size: .86rem; color: var(--muted); line-height: 1.65; }
+
+    /* ── Controls ───────────────────────────────────────────────────────── */
+    .controls { display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 7px;
+      padding: 10px 22px; border-radius: 99px;
+      font-family: var(--font-body); font-size: .86rem; font-weight: 600;
+      cursor: pointer; border: 1px solid var(--border); background: transparent;
+      transition: background .16s var(--ease), border-color .16s var(--ease),
+                  transform .14s var(--ease), box-shadow .16s var(--ease);
+    }
+    .btn:hover:not(:disabled) { transform: translateY(-1px); }
+    .btn:active:not(:disabled) { transform: translateY(0); }
+    .btn-ghost { color: var(--muted); }
+    .btn-ghost:hover:not(:disabled) { background: var(--bg-card-hi); border-color: var(--border-hi); color: var(--text); }
+    .btn-ghost:disabled { opacity: .3; cursor: not-allowed; }
+    .btn-check {
+      background: linear-gradient(135deg, var(--accent), var(--violet));
+      color: #080e1a; border-color: transparent; font-weight: 700;
+      min-width: 144px; justify-content: center;
+    }
+    .btn-check:hover:not(:disabled) { box-shadow: 0 5px 22px rgba(82,200,255,.32); }
+    .btn-check:disabled { opacity: .3; cursor: not-allowed; transform: none; }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(12px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+<div class="page-wrap">
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <a href="/" class="logo">PYQ<span style="opacity:.5">Nova</span></a>
+    <span class="chapter-title">{{ chapter_name }}</span>
+    <span class="q-counter" id="q-counter">— / —</span>
+  </div>
+
+  <!-- Progress -->
+  <div class="pbar" role="progressbar" aria-valuemin="1" aria-valuemax="100">
+    <div class="pbar-fill" id="pbar-fill"></div>
+  </div>
+
+  <!-- Skeleton (shown while loading) -->
+  <div class="skeleton" id="skeleton">
+    <div class="skel-line w60"></div>
+    <div class="skel-line w80"></div>
+    <div class="skel-line w45"></div>
+  </div>
+
+  <!-- Error state -->
+  <div class="error-card" id="error-card">
+    ⚠ Failed to load question. Please refresh or try again.
+  </div>
+
+  <!-- Question card (populated by JS) -->
+  <div class="qcard" id="qcard" style="display:none">
+    <div class="meta" id="meta"></div>
+    <p class="q-chapter" id="q-chapter"></p>
+    <div class="qtext" id="qtext"></div>
+    <div class="qdiag-wrap" id="qdiag-wrap" style="display:none">
+      <img id="qdiag" class="qdiag" alt="Question diagram" loading="lazy"/>
+    </div>
+  </div>
+
+  <!-- Options grid (populated by JS) -->
+  <div class="opts-grid" id="opts-grid" style="display:none"></div>
+
+  <!-- Feedback -->
+  <div class="feedback" id="feedback">
+    <div class="fb-head" id="fb-head"></div>
+    <p class="fb-exp"  id="fb-exp"></p>
+  </div>
+
+  <!-- Controls -->
+  <div class="controls">
+    <button class="btn btn-ghost" id="btn-prev" onclick="navigate(-1)" disabled>← Previous</button>
+    <button class="btn btn-check" id="btn-check" onclick="checkAnswer()" disabled>Check Answer</button>
+    <button class="btn btn-ghost" id="btn-next" onclick="navigate(1)"  disabled>Next →</button>
+  </div>
+
+</div>
+
+<script>
+// ═══════════════════════════════════════════════════════════════════════════
+//  PYQNova — practice.html controller
+//  Fetches from GET /api/questions/{chapter}/{index}
+// ═══════════════════════════════════════════════════════════════════════════
+
+const CHAPTER   = {{ chapter | tojson }};   // Jinja2: URL slug e.g. "semiconductor-electronics"
+const IMG_BASE  = '/images/questions/';     // matches app.mount in main.py
+
+let currentIndex = 0;
+let totalQuestions = 0;
+let selectedKey  = null;
+let answered     = false;
+let currentQ     = null;
+
+// ── DOM refs ──────────────────────────────────────────────────────────────
+const elSkeleton = document.getElementById('skeleton');
+const elError    = document.getElementById('error-card');
+const elQcard    = document.getElementById('qcard');
+const elOptsGrid = document.getElementById('opts-grid');
+const elFeedback = document.getElementById('feedback');
+const elCounter  = document.getElementById('q-counter');
+const elPbar     = document.getElementById('pbar-fill');
+const elBtnPrev  = document.getElementById('btn-prev');
+const elBtnNext  = document.getElementById('btn-next');
+const elBtnCheck = document.getElementById('btn-check');
+
+// ── Fetch one question ────────────────────────────────────────────────────
+async function loadQuestion(index) {
+  // Reset state
+  selectedKey = null;
+  answered    = false;
+  currentQ    = null;
+
+  // Show skeleton, hide content
+  elSkeleton.style.display = 'block';
+  elQcard.style.display    = 'none';
+  elOptsGrid.style.display = 'none';
+  elError.classList.remove('show');
+  elFeedback.classList.remove('show');
+  elBtnCheck.disabled = true;
+
+  let data;
+  try {
+    const res = await fetch(`/api/questions/${CHAPTER}/${index}`);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    data = await res.json();
+  } catch (err) {
+    console.error('[PYQNova] fetch error:', err);
+    elSkeleton.style.display = 'none';
+    elError.classList.add('show');
+    return;
+  }
+
+  totalQuestions = data.total;
+  currentIndex   = data.index;
+  currentQ       = data.question;
+
+  renderQuestion(currentQ);
+
+  // Update nav
+  elCounter.textContent = `${currentIndex + 1} / ${totalQuestions}`;
+  elPbar.style.width    = `${((currentIndex + 1) / totalQuestions) * 100}%`;
+  elBtnPrev.disabled    = currentIndex <= 0;
+  elBtnNext.disabled    = currentIndex >= totalQuestions - 1;
+}
+
+// ── Render question ───────────────────────────────────────────────────────
+function renderQuestion(q) {
+  // Meta badges
+  const subj  = (q.subject || '').toLowerCase();
+  const year  = q.year || '';
+  const diff  = (q.difficulty || 'medium').toLowerCase();
+  document.getElementById('meta').innerHTML = `
+    <span class="badge b-${subj}">${q.subject || ''}</span>
+    ${year ? `<span class="badge b-year">NEET ${year}</span>` : ''}
+    <span class="badge b-${diff}">${diff.charAt(0).toUpperCase() + diff.slice(1)}</span>
+  `;
+
+  // Chapter label
+  document.getElementById('q-chapter').textContent = q.chapter || '';
+
+  // ── Question text ────────────────────────────────────────────────────────
+  // The backend has already stripped $$\text{} artefacts.
+  // We set textContent (not innerHTML) to prevent XSS, then let MathJax handle it.
+  const elQtext = document.getElementById('qtext');
+  elQtext.textContent = q.question_text || '';
+
+  // ── Main diagram ──────────────────────────────────────────────────────────
+  const diagWrap = document.getElementById('qdiag-wrap');
+  const diagImg  = document.getElementById('qdiag');
+  if (q.image_url) {
+    diagImg.src            = q.image_url;
+    diagWrap.style.display = 'block';
+  } else {
+    diagWrap.style.display = 'none';
+  }
+
+  // ── Options image (combined waveform/diagram for all 4 options) ───────────
+  // Shown ABOVE the A/B/C/D buttons when the scraper saved one combined image.
+  let optsImgWrap = document.getElementById('opts-img-wrap');
+  if (!optsImgWrap) {
+    optsImgWrap = document.createElement('div');
+    optsImgWrap.id = 'opts-img-wrap';
+    optsImgWrap.style.cssText = 'text-align:center;margin-bottom:16px';
+    elOptsGrid.parentNode.insertBefore(optsImgWrap, elOptsGrid);
+  }
+  if (q.options_image_url) {
+    optsImgWrap.innerHTML = `<img src="${q.options_image_url}" alt="Options diagram"
+      class="qdiag-img" style="max-width:96%;max-height:260px;margin:0 auto"
+      onload="autoBlend(this)" onerror="this.style.display='none'">`;
+    optsImgWrap.style.display = 'block';
+  } else {
+    optsImgWrap.style.display = 'none';
+  }
+
+  // ── Options ───────────────────────────────────────────────────────────────
+  renderOptions(q.options);
+
+  // ── MathJax typeset ───────────────────────────────────────────────────────
+  // Only typeset text-type questions. Image options are inside .no-mathjax.
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([elQtext]).catch(console.warn);
+  }
+
+  // Show card
+  elSkeleton.style.display = 'none';
+  elQcard.style.display    = 'block';
+  elOptsGrid.style.display = 'grid';
+}
+
+// ── Render options ────────────────────────────────────────────────────────
+function renderOptions(options) {
+  if (!options) options = {};
+  const optType = options['__type__'] || 'text';
+  const keys    = ['A', 'B', 'C', 'D'];
+
+  elOptsGrid.innerHTML = '';
+
+  let anyRendered = false;
+  keys.forEach(key => {
+    const val = options[key];
+    if (val === undefined || val === null) return;
+    anyRendered = true;
+
+    const btn = document.createElement('button');
+    btn.className   = 'opt';
+    btn.dataset.key = key;
+    btn.onclick     = () => selectOpt(btn);
+
+    // Key badge
+    const keySpan = document.createElement('span');
+    keySpan.className   = 'okey';
+    keySpan.textContent = key;
+
+    // Content span
+    const contentSpan = document.createElement('span');
+
+    if (optType === 'image') {
+      // ── IMAGE OPTION FIX ─────────────────────────────────────────────────
+      // val is a filename like "q1_opt_A.png"
+      // Render as <img> with dark-mode blend CSS.
+      // class="no-mathjax" prevents MathJax from trying to parse the filename.
+      contentSpan.className = 'ocontent no-mathjax';
+      const img = document.createElement('img');
+      img.src           = IMG_BASE + val;
+      img.alt           = `Option ${key}`;
+      img.className     = 'opt-img';
+      img.loading       = 'lazy';
+      img.dataset.optImg = 'true';
+      // Auto-blend after load (see autoBlend() below)
+      img.addEventListener('load', () => autoBlend(img), { once: true });
+      contentSpan.appendChild(img);
+    } else {
+      // ── TEXT / LaTeX OPTION ──────────────────────────────────────────────
+      contentSpan.className   = 'ocontent';
+      // If the backend auto-formatted this as a truth table, it will start with <table
+      if (typeof val === 'string' && val.startsWith('<table class="truth-table"')) {
+        contentSpan.innerHTML = val;
+      } else {
+        contentSpan.textContent = val;   // textContent → safe; MathJax typesets below
+      }
+    }
+
+    btn.appendChild(keySpan);
+    btn.appendChild(contentSpan);
+    elOptsGrid.appendChild(btn);
+  });
+
+  // If no options were rendered, show a graceful fallback
+  if (!anyRendered) {
+    const p = document.createElement('p');
+    p.style.cssText       = 'color:var(--muted);font-size:.85rem;grid-column:1/-1;padding:12px 0';
+    p.textContent         = 'Options not available for this question.';
+    elOptsGrid.appendChild(p);
+  }
+
+  // Typeset text options with MathJax (skip image options — they have no-mathjax)
+  if (optType === 'text' && window.MathJax && MathJax.typesetPromise) {
+    const textSpans = elOptsGrid.querySelectorAll('.ocontent:not(.no-mathjax)');
+    if (textSpans.length) MathJax.typesetPromise([...textSpans]).catch(console.warn);
+  }
+}
+
+// ── Select option ─────────────────────────────────────────────────────────
+function selectOpt(card) {
+  if (answered) return;
+  elOptsGrid.querySelectorAll('.opt').forEach(c => c.classList.remove('selected'));
+  card.classList.add('selected');
+  selectedKey         = card.dataset.key;
+  elBtnCheck.disabled = false;
+}
+
+// ── Check answer ──────────────────────────────────────────────────────────
+function checkAnswer() {
+  if (!selectedKey || answered || !currentQ) return;
+  answered = true;
+
+  const correct = currentQ.correct_answer;
+  const isOk    = selectedKey === correct;
+
+  elOptsGrid.querySelectorAll('.opt').forEach(c => {
+    c.classList.add('disabled');
+    if (c.dataset.key === correct)                  c.classList.add('correct');
+    if (c.dataset.key === selectedKey && !isOk)     c.classList.add('wrong');
+  });
+
+  const fbHead = document.getElementById('fb-head');
+  const fbExp  = document.getElementById('fb-exp');
+  elFeedback.classList.add('show');
+  elBtnCheck.disabled = true;
+
+  if (isOk) {
+    fbHead.className = 'fb-head ok';
+    fbHead.innerHTML = '<span class="fb-icon ok">✓</span> Correct!';
+  } else {
+    fbHead.className = 'fb-head bad';
+    fbHead.innerHTML = `<span class="fb-icon bad">✗</span> Incorrect — correct answer is <strong>${correct}</strong>`;
+  }
+
+  fbExp.textContent = currentQ.explanation || '';
+
+  // Typeset explanation (may contain LaTeX)
+  if (window.MathJax && MathJax.typesetPromise) {
+    MathJax.typesetPromise([elFeedback]).catch(console.warn);
+  }
+}
+
+// ── Navigate ──────────────────────────────────────────────────────────────
+function navigate(delta) {
+  const next = currentIndex + delta;
+  if (next < 0 || next >= totalQuestions) return;
+  loadQuestion(next);
+}
+
+// ── Dark-mode blend: detect dark diagrams, switch to invert-mode ──────────
+function autoBlend(img) {
+  try {
+    const S = 40;
+    const c = Object.assign(document.createElement('canvas'), {width: S, height: S});
+    const ctx = c.getContext('2d');
+    ctx.drawImage(img, 0, 0, S, S);
+    const d = ctx.getImageData(0, 0, S, S).data;
+    let b = 0;
+    for (let i = 0; i < d.length; i += 4)
+      b += .2126 * d[i] + .7152 * d[i+1] + .0722 * d[i+2];
+    if (b / (S * S) < 60) img.classList.add('invert-mode');
+  } catch (_) { /* CORS tainted canvas — silent */ }
+}
+
+// ── Boot ──────────────────────────────────────────────────────────────────
+loadQuestion(0);
+</script>
+</body>
+</html>
