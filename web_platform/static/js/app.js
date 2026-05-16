@@ -675,7 +675,7 @@ const Practice = {
      </div>`
   : '';
 
-    const optsImgHtml = q.options_image_url
+    const optsImgHtml = null
       ? `<div class="question-figure-container" style="margin-bottom: 20px;">
            <img src="${q.options_image_url}" alt="Options Figure" class="question-figure option-image" onload="Practice.autoBlendImage(this)" onerror="this.style.display='none'">
          </div>`
@@ -697,7 +697,7 @@ const Practice = {
       </button>`;
     }).join('');
 
-    const solImgHtml = q.solution_image_url
+    const solImgHtml = q.solution_image
       ? `<div class="question-figure-container">
            <img src="${q.solution_image_url}" alt="Solution Figure" class="question-figure" onerror="this.style.display='none'">
          </div>`
