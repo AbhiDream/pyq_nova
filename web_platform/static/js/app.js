@@ -671,7 +671,7 @@ const Practice = {
 
   const imgHtml = q.question_image
   ? `<div class="question-figure-container">
-       <img src="${q.question_image}" alt="Figure" class="question-figure" onerror="this.style.display='none'">
+      <img src="${q.question_image}"
      </div>`
   : '';
 
