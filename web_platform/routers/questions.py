@@ -160,12 +160,10 @@ def format_question(row) -> dict:
             cleaned_opts = {}
             for k, v in opts.items():
                 val = clean_text(str(v))
-                # Auto-format raw truth tables into HTML tables
                 if is_truth_table(val):
                     val = format_truth_table(val)
                 cleaned_opts[k] = val
             opts = cleaned_opts
-            # If all options are completely empty (likely missed images)
             if all(not v for v in opts.values()):
                 opts = {k: "N/A" for k in opts.keys()}
         else:
@@ -174,16 +172,20 @@ def format_question(row) -> dict:
         logger.error(f"❌ JSON Parse Error for ID {row['id']}: {e}")
         logger.error(f"RAW DATA: {row.get('options')}")
         opts = {"A": "Parse Error", "B": "Parse Error", "C": "Parse Error", "D": "Parse Error"}
-        
-    image_url = None
-    if row.get("image_path"):
-        filename = os.path.basename(row["image_path"])
-        image_url = f"/images/questions/{filename}"
-        
-    solution_image_url = None
-    if row.get("solution_image_path"):
-        sol_filename = os.path.basename(row["solution_image_path"])
-        solution_image_url = f"/images/questions/{sol_filename}"
+
+    SUPABASE_BASE = "https://dmfvojxpcxqndfudwhmy.supabase.co/storage/v1/object/public/question-images"
+
+    def to_supabase_url(path):
+        if not path:
+            return None
+        path = str(path).strip()
+        if path.startswith("http"):
+            return path
+        filename = os.path.basename(path)
+        return f"{SUPABASE_BASE}/{filename}"
+
+    image_url = to_supabase_url(row.get("image_path"))
+    solution_image_url = to_supabase_url(row.get("solution_image_path"))
 
     # Determine if we have valid discrete options
     has_valid_opts = False
@@ -195,19 +197,11 @@ def format_question(row) -> dict:
     options_image_url = None
     if not has_valid_opts:
         if row.get("options_image"):
-            options_image_url = f"/images/questions/{row['options_image']}"
-        else:
-            # Fallback: live filesystem check (catches any rows migration missed)
-            for ext in ('.png', '.jpg', '.jpeg'):
-                candidate = f"{row['id']}_opt{ext}"
-                if os.path.exists(os.path.join(QUESTION_IMAGES_DIR, candidate)):
-                    options_image_url = f"/images/questions/{candidate}"
-                    break
-        
+            options_image_url = to_supabase_url(row["options_image"])
+
     parsed_match = None
     try:
         from match_list_parser import parse_match_list
-        # We must pass the RAW uncleaned question_text so the parser can use newlines
         parsed_match = parse_match_list(row.get("question_text", ""))
     except Exception as e:
         logger.error(f"Match list parser error for {row['id']}: {e}")
