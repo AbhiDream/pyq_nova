@@ -755,7 +755,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
 .bottom-action-bar {
   position: fixed;
   bottom: 0;
-  left: 220px;   /* matches sidebar width */
+  left: 260px;   /* matches sidebar width */
   right: 0;
   background: rgba(11,19,38,0.97);
   backdrop-filter: blur(12px);
@@ -765,7 +765,7 @@ h1, h2, h3 { font-family: 'Montserrat', sans-serif; }
   justify-content: center;
   align-items: center;
   gap: 16px;
-  z-index: 100;
+  z-index: 500;
 }
 .bottom-action-bar .btn {
   min-width: 140px;

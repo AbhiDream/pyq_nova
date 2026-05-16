@@ -669,11 +669,11 @@ const Practice = {
         `;
     }
 
-    const imgHtml = q.image_url
-      ? `<div class="question-figure-container">
-           <img src="${q.image_url}" alt="Figure" class="question-figure" onerror="this.style.display='none'">
-         </div>`
-      : '';
+    const imgHtml = q.question_image
+  ? `<div class="question-figure-container">
+       <img src="${q.question_image}" alt="Figure" class="question-figure" onerror="this.style.display='none'">
+     </div>`
+  : '';
 
     const optsImgHtml = q.options_image_url
       ? `<div class="question-figure-container" style="margin-bottom: 20px;">
@@ -685,8 +685,7 @@ const Practice = {
       // Unescape option text before checking if it's an image
       let optContent = unescapeLatex(v);
       if (optContent && (typeof optContent === 'string') && (optContent.startsWith('extracted_images/') || optContent.endsWith('.png') || optContent.endsWith('.jpg') || optContent.endsWith('.jpeg'))) {
-        let srcPath = optContent.startsWith('extracted_images/') ? `/${optContent}` : `/images/questions/${optContent.split('/').pop()}`;
-        optContent = `<img src="${srcPath}" class="option-image" onload="Practice.autoBlendImage(this)">`;
+        let srcPath = optContent.startsWith('http') ? optContent : `/images/questions/${optContent.split('/').pop()}`;
       }
       return `<button class="option-btn" id="opt-${k}" onclick="Practice.selectAnswer('${k}', '${q.correct_answer}', '${q.id}')">
         <span class="option-label">${k}</span>
