@@ -37,9 +37,15 @@ BUG 3 — Second image swallowed into question body
   appear as plain strings ("N/A" after stripping) or nothing at all.
 
   Fix: __type__ flag + the updated practice.html render branch.
+
+BUG 4 — Images not loading on Render (Supabase fix)
+  Images were served from local filesystem (neet_scrap/examside_data/images)
+  which does not exist on Render. Now all image paths are converted to full
+  Supabase Storage URLs automatically.
 ──────────────────────────────────────────────────────────────────────────────
 """
 
+import os
 import re
 import json
 import logging
@@ -52,6 +58,35 @@ from match_list_parser import parse_match_list
 
 router = APIRouter(prefix="/api/questions", tags=["questions"])
 logger = logging.getLogger("pyqnova.questions")
+
+
+# ══════════════════════════════════════════════════════════════════════════════
+# §0  Supabase Image URL helper
+# ══════════════════════════════════════════════════════════════════════════════
+
+SUPABASE_IMAGE_BASE = os.getenv(
+    "SUPABASE_IMAGE_BASE",
+    "https://dmfvojxpcxqndfudwhmy.supabase.co/storage/v1/object/public/question-images"
+)
+
+
+def make_image_url(path: str | None) -> str | None:
+    """
+    Convert any image path to a full Supabase URL.
+      • None / empty          → None
+      • Already http(s) URL   → return as-is
+      • 'examside_data/images/abc.png' or just 'abc.png' → Supabase URL
+    """
+    if not path:
+        return None
+    path = path.strip()
+    if not path:
+        return None
+    if path.startswith("http://") or path.startswith("https://"):
+        return path  # Already a full URL
+    # Extract just the filename (handles any prefix path)
+    filename = os.path.basename(path)
+    return f"{SUPABASE_IMAGE_BASE}/{filename}"
 
 
 # ══════════════════════════════════════════════════════════════════════════════
@@ -150,6 +185,8 @@ def parse_options(raw) -> dict:
       • list  ["opt_A.png", …]
       • str   (TEXT column storing JSON string)
       • None / empty / invalid JSON
+
+    Image filenames are converted to full Supabase URLs.
     """
     if raw is None:
         return {"__type__": "text"}
@@ -185,6 +222,13 @@ def parse_options(raw) -> dict:
         return {"__type__": "text"}
 
     has_images = any(_IMAGE_EXT.search(v) for v in opts.values())
+
+    # ✅ Convert image filenames to full Supabase URLs
+    if has_images:
+        for k in _OPT_KEYS:
+            if k in opts and _IMAGE_EXT.search(opts[k]):
+                opts[k] = make_image_url(opts[k])
+
     opts["__type__"] = "image" if has_images else "text"
     return opts
 
@@ -201,27 +245,31 @@ def serialize_row(row: dict) -> dict:
     raw = row.get("question_text") or ""
     sanitized = sanitize_latex(raw)
     parsed = parse_match_list(raw)
-    
+
     print(f"RAW: {repr(raw[:80])}")
     print(f"SANITIZED: {repr(sanitized[:80])}")
     print(f"PARSED: {parsed is not None}")
 
+    # ✅ Convert image_path to full Supabase URL
+    image_path = row.get("image_path") or row.get("question_image")
+    question_image = make_image_url(image_path)
+
     return {
-        "id":             row.get("id"),
-        "subject":        row.get("subject", ""),
-        "chapter":        row.get("chapter", ""),
-        "year":           row.get("year", ""),
-        "difficulty":     row.get("difficulty", "medium"),
+        "id":                row.get("id"),
+        "subject":           row.get("subject", ""),
+        "chapter":           row.get("chapter", ""),
+        "year":              row.get("year", ""),
+        "difficulty":        row.get("difficulty", "medium"),
         # ← sanitized: no $$\text{} artefacts reach the frontend
-        "question_text":  sanitized,
+        "question_text":     sanitized,
         "match_list_parsed": parsed,
-        # question_image: the main circuit/diagram image (nullable)
-        "question_image": row.get("image_path") or row.get("question_image"),
-        # options: normalised + type-flagged
-        "options":        parse_options(row.get("options")),
-        "correct_answer": row.get("correct_answer", ""),
-        "explanation":    row.get("explanation", ""),
-        "tags":           row.get("tags") or [],
+        # ✅ Full Supabase URL
+        "question_image":    question_image,
+        # options: normalised + type-flagged + image URLs fixed
+        "options":           parse_options(row.get("options")),
+        "correct_answer":    row.get("correct_answer", ""),
+        "explanation":       row.get("explanation", ""),
+        "tags":              row.get("tags") or [],
     }
 
 
