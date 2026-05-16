@@ -669,9 +669,9 @@ const Practice = {
         `;
     }
 
-  const imgHtml = q.question_image
+  const imgHtml = q.image_url
   ? `<div class="question-figure-container">
-      <img src="${q.question_image}"
+      <img src="${q.image_url}"
      </div>`
   : '';
 
