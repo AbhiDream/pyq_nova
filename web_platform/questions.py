@@ -245,33 +245,29 @@ def serialize_row(row: dict) -> dict:
     raw = row.get("question_text") or ""
     sanitized = sanitize_latex(raw)
     parsed = parse_match_list(raw)
-
     print(f"RAW: {repr(raw[:80])}")
     print(f"SANITIZED: {repr(sanitized[:80])}")
     print(f"PARSED: {parsed is not None}")
-
     # ✅ Convert image_path to full Supabase URL
     image_path = row.get("image_path") or row.get("question_image")
     question_image = make_image_url(image_path)
-
+    # ✅ Solution image
+    solution_image = make_image_url(row.get("solution_image_path"))
     return {
         "id":                row.get("id"),
         "subject":           row.get("subject", ""),
         "chapter":           row.get("chapter", ""),
         "year":              row.get("year", ""),
         "difficulty":        row.get("difficulty", "medium"),
-        # ← sanitized: no $$\text{} artefacts reach the frontend
         "question_text":     sanitized,
         "match_list_parsed": parsed,
-        # ✅ Full Supabase URL
         "question_image":    question_image,
-        # options: normalised + type-flagged + image URLs fixed
+        "solution_image":    solution_image,  # ✅ Added
         "options":           parse_options(row.get("options")),
         "correct_answer":    row.get("correct_answer", ""),
         "explanation":       row.get("explanation", ""),
         "tags":              row.get("tags") or [],
     }
-
 
 # ══════════════════════════════════════════════════════════════════════════════
 # §4  Route: GET /api/questions/{chapter}
