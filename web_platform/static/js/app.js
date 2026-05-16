@@ -685,7 +685,7 @@ const Practice = {
       // Unescape option text before checking if it's an image
       let optContent = unescapeLatex(v);
       if (optContent && (typeof optContent === 'string') && (optContent.startsWith('extracted_images/') || optContent.endsWith('.png') || optContent.endsWith('.jpg') || optContent.endsWith('.jpeg'))) {
-       let srcPath = optContent.startsWith('http') ? optContent : `/images/questions/${optContent.split('/').pop()}`;
+     let srcPath = optContent.startsWith('http') ? optContent : `https://dmfvojxpcxqndfudwhmy.supabase.co/storage/v1/object/public/question-images/${optContent.split('/').pop()}`;
         optContent = `<img src="${srcPath}" class="option-image" onload="Practice.autoBlendImage(this)">`;
       }
       return `<button class="option-btn" id="opt-${k}" onclick="Practice.selectAnswer('${k}', '${q.correct_answer}', '${q.id}')">
